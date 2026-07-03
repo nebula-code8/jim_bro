@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2uKFH/oEChY=",
+  "success": true,
+  "projectFilePath": "/home/_lazar/Documents/sims/jim_bro/JimBro/JimBro.Uix/JimBro.Uix.csproj",
+  "expectedPackageFiles": [
+    "/home/_lazar/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.8/microsoft.aspnetcore.app.ref.10.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}
