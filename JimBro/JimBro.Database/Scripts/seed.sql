@@ -1,0 +1,15 @@
+﻿INSERT INTO users (name, surname, gender, date_of_birth, phone_number, email, password, role) VALUES     
+('Marko', 'Marković', 0, '2000-05-15', '+381-60-1234567', 'marko@example.com', 'marko123', 0),
+('Ana', 'Anić', 1, '1998-08-22', '+381-60-1234568', 'ana@example.com', 'ana123', 1),
+('Petar', 'Petrović', 0, '2001-03-10', '+381-60-1234569', 'petar@example.com', 'petar123', 0),
+('Jovana', 'Jovanović', 1, '1999-11-30', '+381-60-1234570', 'jovana@example.com', 'jovana123', 1),
+('Stefan', 'Stefanović', 0, '2002-01-25', '+381-60-1234571', 'stefan@example.com', 'stefan123', 0),
+('Milica', 'Milić', 1, '2000-07-08', '+381-60-1234572', 'milica@example.com', 'milica123', 0),
+('Nikola', 'Nikolić', 0, '1997-12-18', '+381-60-    1234573', 'nikola@example.com', 'nikola123', 1),
+('Ivana', 'Ivanović', 1, '2001-09-05', '+381-60-1234574', 'ivana@example.com', 'ivana123', 2);
+
+INSERT INTO client (id, height, weight, health_problems) VALUES
+(1, 180, 80, NULL),
+(3, 175, 90, NULL),
+(5, 193, 84, NULL),
+(6, 182, 80, NULL);

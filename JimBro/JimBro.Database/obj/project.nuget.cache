@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "eOkp/lB9RMA=",
+  "dgSpecHash": "tiMbj+JHy18=",
   "success": true,
-  "projectFilePath": "/home/_lazar/Documents/sims/jim_bro/JimBro/JimBro.Database/JimBro.Database.csproj",
+  "projectFilePath": "C:\\Users\\320\\OneDrive\\Radna površina\\4. semestar\\Specifikacije i modelovanje softvera\\jim_bro\\JimBro\\JimBro.Database\\JimBro.Database.csproj",
   "expectedPackageFiles": [
-    "/home/_lazar/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.8/microsoft.aspnetcore.app.ref.10.0.8.nupkg.sha512"
+    "C:\\Users\\320\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\320\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\10.0.0\\microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\320\\.nuget\\packages\\npgsql\\10.0.1\\npgsql.10.0.1.nupkg.sha512"
   ],
   "logs": []
 }
