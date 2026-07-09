@@ -1,9 +1,10 @@
 ﻿using JimBro.Domain;
 using JimBro.Domain.RepositoryInterfaces;
+using JimBro.Services.ServiceInterfaces;
 
 namespace JimBro.Services;
 
-public class ClientService : UserService
+public class ClientService : UserService, IClientService
 {
     public readonly IClientRepository _clientRepository;
     

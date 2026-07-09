@@ -1,10 +1,25 @@
 ﻿using System.Data;
 using JimBro.Domain;
+using JimBro.Domain.RepositoryInterfaces;
 
 namespace JimBro.Database.Repositories;
 
-public class UserDbRepository : BaseRepository
+public class UserDbRepository : BaseRepository, IUserRepository
 {
+    public (long Id, Role Role)? AuthenticateUser(string email, string password)
+    {
+        using IDbConnection connection = CreateConnection();
+        IDbCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT users.id, users.role FROM users WHERE users.email = @email AND users.password = @password";
+        AddParameter(command, "@email", email);
+        AddParameter(command, "@password", password);
+        using IDataReader reader = command.ExecuteReader();
+        if (!reader.Read()) return null;
+        long id = Convert.ToInt64(reader["id"]);
+        Role role = (Role)Convert.ToInt32(reader["role"]);
+        return (id, role);
+    }
+    
     public long Insert(User user)
     {
         using IDbConnection connection = CreateConnection();

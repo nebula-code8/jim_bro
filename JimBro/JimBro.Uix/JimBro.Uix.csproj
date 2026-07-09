@@ -7,4 +7,38 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.12" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.12" Condition="'$(Configuration)' == 'Debug'" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\JimBro.Application\JimBro.Application.csproj" />
+        <ProjectReference Include="..\JimBro.Database\JimBro.Database.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AvaloniaXaml Remove="App.axaml" />
+        <AvaloniaResource Include="App.axaml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\ClientHomeWindow.axaml.cs">
+        <DependentUpon>ClientHomeWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\TrainerHomeWindow.axaml.cs">
+        <DependentUpon>TrainerHomeWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\AdminHomeWindow.axaml.cs">
+        <DependentUpon>AdminHomeWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>
