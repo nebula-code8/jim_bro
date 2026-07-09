@@ -32,7 +32,7 @@ public class ClientDbRepository : BaseRepository, IClientRepository
     public List<Client> GetAllClients() {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = "SELECT users.*, client.height, client.weight, client.health_problems FROM users INNER JOIN client ON users.id = client.id WHERE users.email = @email AND users.role = @role";
+        command.CommandText = "SELECT users.*, client.height, client.weight, client.health_problems FROM users INNER JOIN client ON users.id = client.id WHERE users.role = @role";
         AddParameter(command, "@role", (int)Role.Client);
         var clients = new List<Client>();
         using IDataReader reader = command.ExecuteReader();

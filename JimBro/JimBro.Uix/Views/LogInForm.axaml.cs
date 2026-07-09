@@ -43,6 +43,5 @@ public partial class LogInForm : Window
     {
         RegisterForm registerForm = new RegisterForm();
         await registerForm.ShowDialog(this);
-        this.Close();
     }
 }

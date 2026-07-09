@@ -31,7 +31,7 @@ public class UserDbRepository : BaseRepository, IUserRepository
         AddParameter(command, "@name", user.Name);
         AddParameter(command, "@surname", user.Surname);
         AddParameter(command, "@gender", (int)user.Gender);
-        AddParameter(command, "@bdate_of_birth", user.DateOfBirth);
+        AddParameter(command, "@date_of_birth", user.DateOfBirth);
         AddParameter(command, "@phoneNumber", user.PhoneNumber);
         AddParameter(command, "@email", user.EmailAddress);
         AddParameter(command, "@password", user.Password);
