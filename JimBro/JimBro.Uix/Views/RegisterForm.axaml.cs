@@ -12,11 +12,11 @@ namespace JimBro.Uix.Views;
 
 public partial class RegisterForm : Window
 {
-    private readonly RegisterViewModel _viewModel;
+    private readonly ClientFormViewModel _viewModel;
     public RegisterForm()
     {
         InitializeComponent();
-        _viewModel = new RegisterViewModel(new ClientService(new ClientDbRepository()));
+        _viewModel = new ClientFormViewModel(new ClientService(new ClientDbRepository()));
         DataContext = _viewModel;
     }
     

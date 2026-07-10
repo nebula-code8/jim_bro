@@ -1,0 +1,32 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="JimBro.Uix.Views.ProfileForm"
+        Title="Profile">
+    
+        <StackPanel Margin="12" Spacing="8">
+                <TextBox x:Name="NameBox" Watermark="Ime"></TextBox>
+                <TextBox x:Name="SurnameBox" Watermark="Prezime"></TextBox>
+                <ComboBox x:Name="GenderBox" HorizontalAlignment="Stretch" SelectedIndex="0"> 
+                        <ComboBoxItem Content="Muški"></ComboBoxItem>
+                        <ComboBoxItem Content="Ženski"></ComboBoxItem>
+                </ComboBox>
+                <DatePicker x:Name="DatePicker" HorizontalAlignment="Stretch"></DatePicker>
+                <TextBox x:Name="PhoneBox" Watermark="Telefon"></TextBox>
+                <TextBox x:Name="EmailBox" Watermark="Email"></TextBox>
+                <TextBox x:Name="PasswordBox" Watermark="Lozinka" PasswordChar="*"></TextBox>
+                <TextBox x:Name="HeightBox" Watermark="Visina"></TextBox>
+                <TextBox x:Name="WeightBox" Watermark="Tezina"></TextBox>
+                <TextBox x:Name="HealthProblemsBox" Watermark="Zdravstveni problemi" MinLines="4"></TextBox>
+        
+                <TextBlock x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
+        
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Izmeni" Click="UpdateButton_Click" Width="200"></Button>
+                        <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
+                </StackPanel>
+        </StackPanel>
+        
+</Window>

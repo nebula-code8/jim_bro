@@ -4,7 +4,7 @@ using JimBro.Services.ServiceInterfaces;
 
 namespace JimBro.Uix.ViewModels;
 
-public class RegisterViewModel
+public class ClientFormViewModel
 {
     private readonly IClientService _clientService;
 
@@ -22,7 +22,7 @@ public class RegisterViewModel
     public string ErrorMessage { get; private set; } = string.Empty;
     public bool HasError => !string.IsNullOrWhiteSpace(ErrorMessage);
 
-    public RegisterViewModel(IClientService clientService)
+    public ClientFormViewModel(IClientService clientService)
     {
         _clientService = clientService;
     }
@@ -33,6 +33,25 @@ public class RegisterViewModel
         try
         {
             _clientService.CreateClient(client);
+            return true;
+        }
+        catch (UserService.UserValidationException ex)
+        {
+            ErrorMessage = ex.Message;
+            return false;
+        }
+        catch (Exception)
+        {
+            ErrorMessage = "Već postoji uneti email. Unesite drugi.";
+            return false;
+        }
+    }
+    public bool Update(Client client)
+    {
+        ErrorMessage = string.Empty;
+        try
+        {
+            _clientService.UpdateClient(client);
             return true;
         }
         catch (UserService.UserValidationException ex)

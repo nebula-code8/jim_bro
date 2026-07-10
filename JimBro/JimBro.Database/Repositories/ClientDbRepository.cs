@@ -71,8 +71,14 @@ public class ClientDbRepository : BaseRepository, IClientRepository
     }
     
     private static Client MapDbRowToClient(IDataRecord reader) {
+        DateOnly dateOfBirth;
+        var dateOfBirthValue = reader["date_of_birth"];
+        if (dateOfBirthValue is DateTime dateTime) dateOfBirth = DateOnly.FromDateTime(dateTime);
+        else if (dateOfBirthValue is DateOnly dateOnly) dateOfBirth = dateOnly;
+        else dateOfBirth = DateOnly.FromDateTime(Convert.ToDateTime(dateOfBirthValue));
+        
         return new Client(Convert.ToInt64(reader["id"]), reader["name"].ToString(), reader["surname"].ToString(), (Gender)Convert.ToInt32(reader["gender"]),
-            DateOnly.FromDateTime(Convert.ToDateTime(reader["date_of_birth"])), reader["phone_number"].ToString(), reader["email"].ToString(), reader["password"].ToString(),
+            dateOfBirth, reader["phone_number"].ToString(), reader["email"].ToString(), reader["password"].ToString(),
             Convert.ToDouble(reader["height"]), Convert.ToDouble(reader["weight"]), reader["health_problems"].ToString());
     }
 }

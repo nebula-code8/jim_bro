@@ -7,9 +7,14 @@
         <entry key="JimBro.Uix/App.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/ClientHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/TrainerHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/AdminHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/App.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/LogInForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/Profile.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ProfileForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/RegisterForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/TrainerHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
       </map>
     </option>
   </component>

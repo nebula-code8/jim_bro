@@ -30,7 +30,7 @@ public partial class LogInForm : Window
         var (userId, role) = _viewModel.AuthResult!.Value;
         Window homeWindow = role switch
         {
-            Role.Client => new ClientHomeWindow(),
+            Role.Client => new ClientHomeWindow(new ClientDbRepository().GetById(userId)),
             Role.Trainer => new TrainerHomeWindow(),
             Role.Admin => new AdminHomeWindow(),
             _ => throw new InvalidOperationException($"Unknown role: {role}")

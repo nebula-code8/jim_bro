@@ -1,13 +1,38 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using JimBro.Database.Repositories;
+using JimBro.Domain;
+using JimBro.Services;
+using JimBro.Uix.ViewModels;
+using JimBro.Uix.Views;
 
 namespace JimBro.Uix;
 
 public partial class ClientHomeWindow : Window
 {
-    public ClientHomeWindow()
+    private readonly ClientFormViewModel _viewModel;
+    private Client _client;
+    
+    public ClientHomeWindow(Client client)
     {
         InitializeComponent();
+        _client = client;
+        _viewModel = new ClientFormViewModel(new ClientService(new ClientDbRepository()));
+    }
+
+    private async void ProfileButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ProfileForm profileForm = new ProfileForm(_client);
+        await profileForm.ShowDialog(this);
+        _client = new ClientDbRepository().GetById(_client.Id);
+    }
+    
+    private async void LogoutButton_Click(object? sender, RoutedEventArgs e)
+    {
+        LogInForm loginForm = new LogInForm();
+        loginForm.Show();
+        Close();
     }
 }
