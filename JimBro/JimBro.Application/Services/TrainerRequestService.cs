@@ -23,6 +23,9 @@ public class TrainerRequestService : ITrainerRequestService
         _trainerRequestRepository.Insert(clientId, trainerId);
     }
     public TrainerRequest? GetRequest(long clientId, long trainerId) => _trainerRequestRepository.GetRequest(clientId, trainerId);
+    public List<Client> GetClientsForTrainer(long trainerId) => _trainerRequestRepository.GetClientsForTrainer(trainerId);
+    public void AcceptRequest(long requestId) => _trainerRequestRepository.AcceptRequest(requestId);
+    public void RejectRequest(long requestId) => _trainerRequestRepository.RejectRequest(requestId);
     
     public string GetStatusText(RequestStatus? status)
     {

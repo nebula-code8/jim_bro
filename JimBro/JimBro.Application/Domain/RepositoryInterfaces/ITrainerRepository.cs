@@ -3,4 +3,5 @@
 public interface ITrainerRepository
 {
     List<Trainer> GetAllTrainers();
+    Trainer? GetById(long id);
 }

@@ -16,6 +16,7 @@
         <entry key="JimBro.Uix/Views/RegisterForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/RequestTrainerWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/TrainerHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/TrainerRequests.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
       </map>
     </option>
   </component>

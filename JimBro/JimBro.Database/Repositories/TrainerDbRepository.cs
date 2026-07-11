@@ -6,6 +6,17 @@ namespace JimBro.Database.Repositories;
 
 public class TrainerDbRepository : BaseRepository, ITrainerRepository
 {
+    public Trainer? GetById(long id) {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT u.*, t.specialization, t.biography, t.license FROM users u INNER JOIN trainer t ON u.id = t.id WHERE u.id = @id AND u.role = @role";
+        AddParameter(command, "@id", id);
+        AddParameter(command, "@role", (int)Role.Trainer);
+        using IDataReader reader = command.ExecuteReader();
+        return reader.Read() ? MapDbRowToTrainer(reader) : null;
+        
+    }
+    
     public List<Trainer> GetAllTrainers()
     {
         using IDbConnection connection = CreateConnection();
