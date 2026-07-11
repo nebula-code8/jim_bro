@@ -13,3 +13,8 @@ INSERT INTO client (id, height, weight, health_problems) VALUES
 (3, 175, 90, NULL),
 (5, 193, 84, NULL),
 (6, 182, 80, NULL);
+
+INSERT INTO trainer (id, specialization, biography, license) VALUES
+(2, 'Yoga', '...', 'Certifed Personal Trainer'),
+(4, 'Cardio', '...', 'Certifed Personal Trainer'),
+(7, 'Bodybuilding', '...', 'Certifed Personal Trainer');

@@ -35,4 +35,10 @@ public partial class ClientHomeWindow : Window
         loginForm.Show();
         Close();
     }
+    
+    private async void RequestTrainerButton_Click(object? sender, RoutedEventArgs e)
+    {
+        RequestTrainerWindow window = new RequestTrainerWindow(_client);
+        await window.ShowDialog(this);
+    }
 }

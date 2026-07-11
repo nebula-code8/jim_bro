@@ -6,7 +6,7 @@ namespace JimBro.Services;
 
 public class ClientService : UserService, IClientService
 {
-    public readonly IClientRepository _clientRepository;
+    private readonly IClientRepository _clientRepository;
     
     public ClientService(IClientRepository clientRepository)
     {

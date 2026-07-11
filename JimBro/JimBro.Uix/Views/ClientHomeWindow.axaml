@@ -16,6 +16,10 @@
                                 Click="LogoutButton_Click"
                                 Padding="15,8"
                                 FontSize="14"/>
+                        <Button Content="Posaljite zahtev treneru"
+                                Click="RequestTrainerButton_Click"
+                                Padding="15,8"
+                                FontSize="14"/>
                 </StackPanel>
         </Border>
         

@@ -35,12 +35,14 @@ public partial class RegisterForm : Window
                 _viewModel.CleanForm();
             } else{
                 ErrorMessageTextBlock.Text = _viewModel.ErrorMessage;
+                ErrorMessageTextBlock.Foreground = Brushes.Red;
                 ErrorMessageTextBlock.IsVisible = true;
             }
         }
         catch (Exception ex)
         {
             ErrorMessageTextBlock.Text = ex.Message;
+            ErrorMessageTextBlock.Foreground = Brushes.Red;
             ErrorMessageTextBlock.IsVisible = true;
         }
     }
