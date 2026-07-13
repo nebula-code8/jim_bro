@@ -18,3 +18,10 @@ INSERT INTO trainer (id, specialization, biography, license) VALUES
 (2, 'Yoga', '...', 'Certifed Personal Trainer'),
 (4, 'Cardio', '...', 'Certifed Personal Trainer'),
 (7, 'Bodybuilding', '...', 'Certifed Personal Trainer');
+
+INSERT INTO accessories (name, description, weight) VALUES
+('Dumbbell', 'Dumbbell used for strength exercises.', 5.0),
+('Kettlebell', 'Kettlebell used for functional training.', 12.0),
+('Medicine Ball', 'Weighted ball used for strength and coordination exercises.', 4.0),
+('Resistance Band', 'Elastic band used for resistance exercises.', NULL),
+('Jump Rope', 'Rope used for cardio and coordination exercises.', NULL);
