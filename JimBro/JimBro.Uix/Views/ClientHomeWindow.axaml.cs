@@ -41,4 +41,10 @@ public partial class ClientHomeWindow : Window
         RequestTrainerWindow window = new RequestTrainerWindow(_client);
         await window.ShowDialog(this);
     }
+    
+    private async void MyRequestsButton_Click(object? sender, RoutedEventArgs e)
+        {
+            MyRequestsWindow window = new MyRequestsWindow(_client);
+            await window.ShowDialog(this);
+        }
 }

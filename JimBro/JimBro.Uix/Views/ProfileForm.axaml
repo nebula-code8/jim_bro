@@ -19,6 +19,7 @@
                 <TextBox x:Name="PasswordBox" Watermark="Lozinka" PasswordChar="*"></TextBox>
                 <TextBox x:Name="HeightBox" Watermark="Visina"></TextBox>
                 <TextBox x:Name="WeightBox" Watermark="Tezina"></TextBox>
+                <TextBox x:Name="GoalBox" Watermark="Cilj"></TextBox>
                 <TextBox x:Name="HealthProblemsBox" Watermark="Zdravstveni problemi" MinLines="4"></TextBox>
         
                 <TextBlock x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>

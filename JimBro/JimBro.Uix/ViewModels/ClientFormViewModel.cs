@@ -17,6 +17,7 @@ public class ClientFormViewModel
     public string Password { get; set; } = string.Empty;
     public string Height { get; set; } = string.Empty;
     public string Weight { get; set; } = string.Empty;
+    public string Goal { get; set; } = string.Empty;
     public string HealthProblems { get; set; } = string.Empty;
 
     public string ErrorMessage { get; private set; } = string.Empty;
@@ -64,20 +65,5 @@ public class ClientFormViewModel
             ErrorMessage = "Već postoji uneti email. Unesite drugi.";
             return false;
         }
-    }
-    
-    public void CleanForm()
-    {
-        Name = string.Empty;
-        Surname = string.Empty;
-        Gender = Gender.Male;
-        DateOfBirth = DateTime.Today.AddYears(-20);
-        PhoneNumber = string.Empty;
-        Email = string.Empty;
-        Password = string.Empty;
-        Height = string.Empty;
-        Weight = string.Empty;
-        HealthProblems = string.Empty;
-        ErrorMessage = string.Empty;
     }
 }

@@ -38,6 +38,7 @@ public partial class ProfileForm : Window
                 password: string.IsNullOrWhiteSpace(PasswordBox.Text) ? _client.Password : PasswordBox.Text, 
                 height: Convert.ToDouble(HeightBox.Text),
                 weight: Convert.ToDouble(WeightBox.Text),
+                goal: GoalBox.Text ?? "",
                 healthProblems: HealthProblemsBox.Text ?? ""
             );
             bool success = _viewModel.Update(client);
@@ -74,6 +75,7 @@ public partial class ProfileForm : Window
         PasswordBox.Text = _client.Password;
         HeightBox.Text = _client.Height.ToString();
         WeightBox.Text = _client.Weight.ToString();
+        GoalBox.Text = _client.Goal.ToString();
         HealthProblemsBox.Text = _client.HealthProblems;
     }
 }

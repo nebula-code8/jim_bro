@@ -19,6 +19,7 @@ CREATE TABLE client (
     id BIGINT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     height DOUBLE PRECISION NOT NULL,
     weight DOUBLE PRECISION NOT NULL,
+    goal VARCHAR(200) NOT NULL,
     health_problems VARCHAR(100)
 );
 

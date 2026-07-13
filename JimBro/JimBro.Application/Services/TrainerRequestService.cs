@@ -26,15 +26,4 @@ public class TrainerRequestService : ITrainerRequestService
     public List<Client> GetClientsForTrainer(long trainerId) => _trainerRequestRepository.GetClientsForTrainer(trainerId);
     public void AcceptRequest(long requestId) => _trainerRequestRepository.AcceptRequest(requestId);
     public void RejectRequest(long requestId) => _trainerRequestRepository.RejectRequest(requestId);
-    
-    public string GetStatusText(RequestStatus? status)
-    {
-        return status switch
-        {
-            RequestStatus.Pending => "Poslat zahtev",
-            RequestStatus.Accepted => "Prihvaćen",
-            RequestStatus.Rejected => "Odbijen",
-            _ => "Nepoznat"
-        };
-    }
 }

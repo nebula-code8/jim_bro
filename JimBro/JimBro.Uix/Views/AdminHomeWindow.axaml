@@ -5,4 +5,34 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="JimBro.Uix.AdminHomeWindow"
         Title="AdminHomeWindow">
+        
+        <Grid>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+        
+                <Border Grid.Row="0" Background="#3498DB" Padding="15">
+                        <Grid>
+                                <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Button Grid.Column="1" Content="Odjavi se"
+                                        Background="RoyalBlue"
+                                        Click="LogoutButton_Click"
+                                        Padding="15,8"
+                                        FontSize="14"/>
+                        </Grid>
+                </Border>
+                
+                <Border Grid.Row="1" Background="#F0F4F8" Padding="30">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
+                                
+                        </StackPanel>
+                </Border>
+        </Grid>
+        
 </Window>
