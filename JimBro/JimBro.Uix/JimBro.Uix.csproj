@@ -39,6 +39,9 @@
         <DependentUpon>AdminHomeWindow.axaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
+      <Compile Update="Views\TrainerRequestsWindow.axaml.cs">
+        <DependentUpon>TrainerRequestsWindow.axaml</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>
