@@ -18,3 +18,13 @@ INSERT INTO trainer (id, specialization, biography, license) VALUES
 (2, 'Yoga', '...', 'Certifed Personal Trainer'),
 (4, 'Cardio', '...', 'Certifed Personal Trainer'),
 (7, 'Bodybuilding', '...', 'Certifed Personal Trainer');
+
+INSERT INTO equipments (id, name, description) VALUES
+(1, 'Teg', 'Teg od 5kg'),
+(2, 'Teg', 'Teg od 10kg'),
+(3, 'Teg', 'Teg od 20kg');
+
+INSERT INTO machines (id, name, description) VALUES
+(1, 'Mašina za potisak za grudi', 'Mašina za potisak za grudi'),
+(2, 'Smit mašina', 'Smit mašina'),
+(3, 'Traka za trčanje', 'Traka za trčanje');
