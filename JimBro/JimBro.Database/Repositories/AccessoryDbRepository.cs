@@ -11,7 +11,7 @@ public class AccessoryDbRepository : BaseRepository, IAccessoryRepository
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
         var accessories = new List<Accessory>();
-        command.CommandText = "SELECT id, name, description, weight FROM accessories ORDER BY id ASC";
+        command.CommandText = "SELECT id, name, description FROM accessories ORDER BY id ASC";
         using IDataReader reader = command.ExecuteReader();
         while (reader.Read())
         {
@@ -24,10 +24,9 @@ public class AccessoryDbRepository : BaseRepository, IAccessoryRepository
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = "INSERT INTO accessories (name, description, weight) VALUES (@name, @description, @weight) RETURNING id";
+        command.CommandText = "INSERT INTO accessories (name, description) VALUES (@name, @description) RETURNING id";
         AddParameter(command, "@name", accessory.Name);
         AddParameter(command, "@description", accessory.Description);
-        AddParameter(command, "@weight", accessory.Weight);
         object? id = command.ExecuteScalar();
         return Convert.ToInt64(id);
     }
@@ -36,11 +35,10 @@ public class AccessoryDbRepository : BaseRepository, IAccessoryRepository
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = "UPDATE accessories SET name = @name, description = @description, weight = @weight WHERE id = @id";
+        command.CommandText = "UPDATE accessories SET name = @name, description = @description WHERE id = @id";
         AddParameter(command, "@id", accessory.Id);
         AddParameter(command, "@name", accessory.Name);
         AddParameter(command, "@description", accessory.Description);
-        AddParameter(command, "@weight", accessory.Weight);
         return command.ExecuteNonQuery();
     }
 
@@ -58,10 +56,7 @@ public class AccessoryDbRepository : BaseRepository, IAccessoryRepository
         return new Accessory(
             Convert.ToInt64(reader["id"]),
             Convert.ToString(reader["name"])!,
-            Convert.ToString(reader["description"])!,
-            reader["weight"] == DBNull.Value
-                ? null
-                : Convert.ToDouble(reader["weight"]));
+            Convert.ToString(reader["description"])!);
     }
     
 }

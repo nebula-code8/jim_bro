@@ -5,4 +5,13 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="JimBro.Uix.AdminHomeWindow"
         Title="AdminHomeWindow">
+    
+    <Border Padding="15">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="12">
+            <Button Content="Accessories"
+                    Click="AccessoriesCRUD_Click"
+                    Padding="15,8"
+                    FontSize="14"/>
+        </StackPanel>
+    </Border>
 </Window>

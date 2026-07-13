@@ -1,0 +1,66 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="900"
+        d:DesignHeight="500"
+        x:Class="JimBro.Uix.Views.AccessoriesWindow"
+        Title="Accessories">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Spacing="10"
+                    Margin="0,0,0,12">
+
+            <Button Content="Add accessory"
+                    Click="AddAccessory_Click"/>
+            
+            <Button Content="Update accessory"
+                    Click="UpdateAccessory_Click"/>
+            
+            <Button Content="Delete accessory"
+                    Click="DeleteAccessory_Click"/>
+            
+        </StackPanel>
+        
+        <TextBlock x:Name="ErrorMessageTextBlock"
+                   Grid.Row="1"
+                   Foreground="Red"
+                   IsVisible="False"
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,10"/>
+        
+        <DataGrid x:Name="AccessoriesDataGrid"
+                  Grid.Row="2"
+                  ItemsSource="{Binding Accessories}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Id"
+                                    Binding="{Binding Id}"
+                                    Width="80"/>
+
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Name}"
+                                    Width="180"/>
+
+                <DataGridTextColumn Header="Description"
+                                    Binding="{Binding Description}"
+                                    Width="*"/>
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</Window>

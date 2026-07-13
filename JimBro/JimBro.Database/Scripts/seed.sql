@@ -19,9 +19,9 @@ INSERT INTO trainer (id, specialization, biography, license) VALUES
 (4, 'Cardio', '...', 'Certifed Personal Trainer'),
 (7, 'Bodybuilding', '...', 'Certifed Personal Trainer');
 
-INSERT INTO accessories (name, description, weight) VALUES
-('Dumbbell', 'Dumbbell used for strength exercises.', 5.0),
-('Kettlebell', 'Kettlebell used for functional training.', 12.0),
-('Medicine Ball', 'Weighted ball used for strength and coordination exercises.', 4.0),
-('Resistance Band', 'Elastic band used for resistance exercises.', NULL),
-('Jump Rope', 'Rope used for cardio and coordination exercises.', NULL);
+INSERT INTO accessories (name, description) VALUES
+('Bučica', 'Bučica težine 5 kg, namenjena vežbama snage.'),
+('Girja', 'Girja težine 12 kg, namenjena funkcionalnom treningu.'),
+('Medicinska lopta', 'Medicinska lopta težine 4 kg, namenjena vežbama snage i koordinacije.'),
+('Elastična traka', 'Lagana elastična traka namenjena vežbama otpora i istezanja.'),
+('Vijača', 'Lagana vijača namenjena kardio treningu i vežbama koordinacije.');

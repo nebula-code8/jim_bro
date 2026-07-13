@@ -35,12 +35,6 @@ public class AccessoryService : IAccessoryService
             throw new ArgumentException("Ime ne moze sastojati samo od cifara!");
         }
         
-        
-        if (accessory.Weight.HasValue && accessory.Weight.Value <= 0)
-        {
-            throw new ArgumentException("Tezina ne moze da bude negativna ili jednaka nuli");
-        }
-        
         if (accessory.Description.Length > 200)
         {
             throw new ArgumentException("Opis ne moze biti duzi od 200 karaktera!");
