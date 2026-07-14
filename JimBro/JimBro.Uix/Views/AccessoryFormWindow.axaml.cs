@@ -22,8 +22,8 @@ public partial class AccessoryFormWindow : Window
         InitializeComponent();
         _viewModel = viewModel;
         _accessoryToEdit = accessoryToEdit;
-        Title = "Update accessory";
-        SaveButton.Content = "Update";
+        Title = "Izmeniti rekvizit";
+        SaveButton.Content = "Sacuvaj";
         NameTextBox.Text = accessoryToEdit.Name;
         DescriptionTextBox.Text = accessoryToEdit.Description;
     }

@@ -19,4 +19,12 @@ public partial class AdminHomeWindow : Window
         AccessoriesWindow accessoriesWindow = new AccessoriesWindow();
         await accessoriesWindow.ShowDialog(this);
     }
+
+    private void Logout_Click(object? sender, RoutedEventArgs e)
+    {
+        LogInForm loginForm = new LogInForm();
+
+        loginForm.Show();
+        Close();
+    }
 }

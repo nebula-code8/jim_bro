@@ -50,6 +50,26 @@ public class AccessoryDbRepository : BaseRepository, IAccessoryRepository
         AddParameter(command, "@id", id);
         return command.ExecuteNonQuery();
     }
+    
+    public Accessory? GetById(long id)
+    {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT id, name, description FROM accessories WHERE id = @id";
+        AddParameter(command, "@id", id);
+        using IDataReader reader = command.ExecuteReader();
+        if (!reader.Read())
+        {
+            return null;
+        }
+
+        return MapDbRowToAccessory(reader);
+    }
+    
+    public void IsUsedInActiveTraining(long accessoryId)
+    {
+        //Metoda bi proverala da odabrani u tabeli rekvzit za brisanje ili izmenu ne koristi se u aktivnim treninzima.
+    }
 
     private static Accessory MapDbRowToAccessory(IDataRecord reader)
     {
@@ -58,5 +78,6 @@ public class AccessoryDbRepository : BaseRepository, IAccessoryRepository
             Convert.ToString(reader["name"])!,
             Convert.ToString(reader["description"])!);
     }
+    
     
 }

@@ -6,7 +6,7 @@
         d:DesignWidth="900"
         d:DesignHeight="500"
         x:Class="JimBro.Uix.Views.AccessoriesWindow"
-        Title="Accessories">
+        Title="Rekviziti">
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
@@ -20,13 +20,13 @@
                     Spacing="10"
                     Margin="0,0,0,12">
 
-            <Button Content="Add accessory"
+            <Button Content="Dodati rekvizit"
                     Click="AddAccessory_Click"/>
             
-            <Button Content="Update accessory"
+            <Button Content="Izmeniti rekvizit"
                     Click="UpdateAccessory_Click"/>
             
-            <Button Content="Delete accessory"
+            <Button Content="Obrisati rekvizit"
                     Click="DeleteAccessory_Click"/>
             
         </StackPanel>
@@ -42,7 +42,8 @@
                   Grid.Row="2"
                   ItemsSource="{Binding Accessories}"
                   AutoGenerateColumns="False"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  SelectionMode="Single">
 
             <DataGrid.Columns>
 
@@ -50,11 +51,11 @@
                                     Binding="{Binding Id}"
                                     Width="80"/>
 
-                <DataGridTextColumn Header="Name"
+                <DataGridTextColumn Header="Naziv"
                                     Binding="{Binding Name}"
                                     Width="180"/>
 
-                <DataGridTextColumn Header="Description"
+                <DataGridTextColumn Header="Opis"
                                     Binding="{Binding Description}"
                                     Width="*"/>
 

@@ -8,4 +8,5 @@ public interface IAccessoryService
     long CreateAccessory(Accessory accessory);
     int UpdateAccessory(Accessory accessory);
     int DeleteAccessory(long id);
+    Accessory GetAccessoryById(long id);
 }

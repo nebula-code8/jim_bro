@@ -40,7 +40,7 @@ public class AccessoryService : IAccessoryService
             throw new ArgumentException("Opis ne moze biti duzi od 200 karaktera!");
         }
     }
-
+    
     public List<Accessory> GetAllAccessories()
     {
         return _accessoryRepository.GetAllAccessories();
@@ -75,6 +75,23 @@ public class AccessoryService : IAccessoryService
         }
         
         return rowsAffected;
+    }
+    
+    public Accessory GetAccessoryById(long id)
+    {
+        Accessory? accessory = _accessoryRepository.GetById(id);
+        if (accessory is null)
+        {
+            throw new InvalidOperationException(
+                "Rekvizit nije pronađen!"
+            );
+        }
+        return accessory;
+    }
+    
+    private void EnsureAccessoryIsNotUsedInActiveTraining(long accessoryId)
+    {
+        //Metoda bi proverala da odabrani u tabeli rekvzit za brisanje ili izmenu ne koristi se u aktivnim treninzima.
     }
 }
 
