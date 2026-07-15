@@ -31,6 +31,24 @@ public class ExerciseDbRepository : BaseRepository, IExerciseRepository
         return exercises;
     }
     
+    public List<Exercise> GetExercisesForTrainerAndClient(long trainerId, long clientId) {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText = @"SELECT DISTINCT e.*, a.id as AccessoryId, a.name as AccessoryName, a.description as AccessoryDescription, 
+               m.id as MachineId, m.name as MachineName, m.description as MachineDescription FROM exercises e LEFT JOIN accessories a 
+                   ON e.accessory_id = a.id LEFT JOIN machines m ON e.machine_id = m.id WHERE e.trainer_id = @trainerId 
+                       AND ((e.accessory_id IS NULL AND e.machine_id IS NULL)
+            OR (e.accessory_id IS NOT NULL AND e.accessory_id IN (SELECT accessory_id FROM client_accessories WHERE client_id = @clientId))
+            OR (e.machine_id IS NOT NULL AND e.machine_id IN (SELECT machine_id FROM client_machines WHERE client_id = @clientId)))";
+        AddParameter(command, "@trainerId", trainerId);
+        AddParameter(command, "@clientId", clientId);
+        var exercises = new List<Exercise>();
+        using IDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+            exercises.Add(MapDbRowToExercise(reader));
+        return exercises;
+    }
+    
     public void Insert(Exercise exercise)
     {
         using IDbConnection connection = CreateConnection();

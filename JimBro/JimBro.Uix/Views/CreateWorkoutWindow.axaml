@@ -1,0 +1,78 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Height="700"
+        x:Class="JimBro.Uix.Views.CreateWorkoutWindow"
+        Title="CreateWorkoutWindow">
+    
+        <Grid Margin="10">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+    <TextBlock Grid.Row="0" Text="Sve vezbe" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+        <DataGrid x:Name="AllExercisesDataGrid"
+                  Grid.Row="1"
+                  MaxHeight="400"
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  SelectedItem="{Binding SelectedExercise}">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Name}" Width="150"/>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Description}" Width="300"/>
+                        <DataGridTextColumn Header="Rekvizit" Binding="{Binding Accessory.Name, FallbackValue=''}" Width="150"/>
+                        <DataGridTextColumn Header="Sprava" Binding="{Binding Machine.Name, FallbackValue=''}" Width="150"/>
+                </DataGrid.Columns>
+        </DataGrid>
+
+    <Border Grid.Row="2" Padding="15" Margin="0,10,0,10">
+            <StackPanel Spacing="10">
+                    <TextBox x:Name="SetsBox" Watermark="Broj serija"></TextBox>
+                    <TextBox x:Name="RepsBox" Watermark="Broj ponavljanja"></TextBox>
+                    <TextBox x:Name="DurationBox" Watermark="Trajanje(u minutima)"></TextBox>
+                    <Button Content="Dodaj vezbu za trening" Name="AddButton" Click="AddWorkoutExerciseButton_Click" Width="200"></Button>
+            </StackPanel>
+    </Border>
+    <TextBlock Grid.Row="3" Text="Vezbe za trening" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+            <DataGrid x:Name="WorkoutExercisesDataGrid"
+                      Grid.Row="4"
+                      MaxHeight="400"
+                      AutoGenerateColumns="False"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch"
+                      SelectedItem="{Binding SelectedWorkoutExercise}">
+                    <DataGrid.Columns>
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Exercise.Name}" Width="150"/>
+                            <DataGridTextColumn Header="Opis" Binding="{Binding Exercise.Description, FallbackValue=''}" Width="300"/>
+                            <DataGridTextColumn Header="Rekvizit" Binding="{Binding Exercise.Accessory.Name, FallbackValue=''}" Width="150"/>
+                            <DataGridTextColumn Header="Sprava" Binding="{Binding Exercise.Machine.Name, FallbackValue=''}" Width="150"/>
+                            <DataGridTextColumn Header="Broj serija" Binding="{Binding Sets}" Width="50"/>
+                            <DataGridTextColumn Header="Broj ponavljanja" Binding="{Binding Reps}" Width="50"/>
+                            <DataGridTextColumn Header="Trajanje (u minutima)" Binding="{Binding Duration}" Width="50"/>
+                    </DataGrid.Columns>
+            </DataGrid>
+    
+    <Border Grid.Row="5" Padding="15" Margin="0,10,0,10">
+            <StackPanel Spacing="10">
+                    <TextBox x:Name="NoteBox" Watermark="Napomena"/>
+            </StackPanel>
+    </Border>
+                
+                <TextBlock Grid.Row="6" x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
+        
+                <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Ukloni vezbu iz treninga" Name="RemoveButton" Click="RemoveWorkoutExerciseButton_Click" Width="200"></Button>
+                        <Button Content="Dodajte trening" Name="AddWorkoutButton" Click="AddWorkoutButton_Click" Width="200"></Button>
+                        <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
+                </StackPanel>
+        </Grid>
+        
+</Window>

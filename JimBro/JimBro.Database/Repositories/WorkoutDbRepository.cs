@@ -7,21 +7,12 @@ namespace JimBro.Database.Repositories;
 
 public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
 {
-    private readonly ITrainerRepository _trainerRepository;
-    private readonly IClientRepository _clientRepository;
-    
-    public WorkoutDbRepository(ITrainerRepository trainerRepository, IClientRepository clientRepository)
-    {
-        _trainerRepository = trainerRepository;
-        _clientRepository = clientRepository;
-    }
     public Workout? GetById(long id)
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
         command.CommandText =
-            @"SELECT w.*, t.id as TrainerId, c.id as ClientId FROM workout w INNER JOIN users t ON w.trainer_id = t.id INNER JOIN
-                users c ON w.client_id = c.id WHERE w.id = @id";
+            @"SELECT w.* FROM workout w WHERE w.id = @id";
         AddParameter(command, "@id", id);
         using IDataReader reader = command.ExecuteReader();
         return reader.Read() ? MapDbRowToWorkout(reader) : null;
@@ -32,8 +23,7 @@ public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
         command.CommandText =
-            @"SELECT w.*, t.id as TrainerId, c.id as ClientId FROM workout w INNER JOIN users t ON w.trainer_id = t.id INNER JOIN users
-                c ON w.client_id = c.id WHERE w.client_id = @clientId ORDER BY w.date DESC";
+            @"SELECT w.* FROM workout w WHERE w.client_id = @clientId ORDER BY w.date DESC";
         AddParameter(command, "@clientId", clientId);
         var workouts = new List<Workout>();
         using IDataReader reader = command.ExecuteReader();
@@ -42,27 +32,28 @@ public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
         return workouts;
     }
     
-    public void Insert(Workout workout)
+    public long Insert(Workout workout)
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = "INSERT INTO workout (date, note, trainer_id, client_id) VALUES (@date, @note, @trainer_id, @client_id)";
+        command.CommandText = "INSERT INTO workout (date, note, trainer_id, client_id) VALUES (@date, @note, @trainer_id, @client_id) RETURNING id";
         AddParameter(command, "@date", workout.Date);
         AddParameter(command, "@note", workout.Note);
         AddParameter(command, "@trainer_id", workout.Trainer.Id);
         AddParameter(command, "@client_id", workout.Client.Id);
-        command.ExecuteNonQuery();
+        return Convert.ToInt64(command.ExecuteScalar());
     }
     
-    private Workout MapDbRowToWorkout(IDataRecord reader) 
+    private static Workout MapDbRowToWorkout(IDataRecord reader) 
     {
         var trainerId = Convert.ToInt64(reader["trainer_id"]);
-        var clientIdFromDb = Convert.ToInt64(reader["client_Id"]);
-            
-        var trainer = _trainerRepository.GetById(trainerId);
-        var client = _clientRepository.GetById(clientIdFromDb);
+        var clientId = Convert.ToInt64(reader["client_Id"]);
+        
+        var trainer = new TrainerDbRepository().GetById(trainerId);
+        var client = new ClientDbRepository().GetById(clientId);
 
-        return new Workout(Convert.ToInt64(reader["workout_id"]),
-            DateOnly.FromDateTime(Convert.ToDateTime(reader["date"])), reader["note"]?.ToString() ?? string.Empty, trainer, client);
+        return new Workout(Convert.ToInt64(reader["id"]),
+            DateOnly.FromDateTime(Convert.ToDateTime(reader["date"])), reader["note"]?.ToString() ?? string.Empty,
+            trainer: trainer, client);
     }
 }

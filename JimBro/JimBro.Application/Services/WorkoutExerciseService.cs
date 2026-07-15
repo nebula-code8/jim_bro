@@ -31,6 +31,9 @@ public class WorkoutExerciseService : IWorkoutExerciseService
         if (string.IsNullOrWhiteSpace(workoutExercise.Reps.ToString()))
             throw new Exception("Broj ponavljanja je obavezno polje!");
         
+        if (string.IsNullOrWhiteSpace(workoutExercise.Duration.ToString()))
+            throw new Exception("Trajanje je obavezno polje!");
+        
         if (workoutExercise.Exercise == null)
             throw new Exception("Izabetire vezbu!");
         
@@ -39,5 +42,8 @@ public class WorkoutExerciseService : IWorkoutExerciseService
         
         if (workoutExercise.Reps <= 0)
             throw new Exception("Broj ponavljanja mora biti veći od 0!");
+        
+        if (workoutExercise.Duration <= 0)
+            throw new Exception("Trajanje mora biti veći od 0!");
     }
 }

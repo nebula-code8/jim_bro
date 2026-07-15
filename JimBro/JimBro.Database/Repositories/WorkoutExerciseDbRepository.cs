@@ -6,14 +6,6 @@ namespace JimBro.Database.Repositories;
 
 public class WorkoutExerciseDbRepository : BaseRepository, IWorkoutExerciseRepository
 {
-    private readonly IWorkoutRepository _workoutRepository;
-    private readonly IExerciseRepository _exerciseRepository;
-    
-    public WorkoutExerciseDbRepository()
-    {
-        _workoutRepository = new WorkoutDbRepository(new TrainerDbRepository(), new ClientDbRepository());
-        _exerciseRepository = new ExerciseDbRepository();
-    }
     public WorkoutExercise? GetById(long id) 
     { 
         using IDbConnection connection = CreateConnection();
@@ -42,9 +34,10 @@ public class WorkoutExerciseDbRepository : BaseRepository, IWorkoutExerciseRepos
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
     
-        command.CommandText = @"INSERT INTO workout_exercise (sets, reps, exercise_id, workout_id) VALUES (@sets, @reps, @exercise_id, @workout_id)"; 
+        command.CommandText = @"INSERT INTO workout_exercise (sets, reps, duration, exercise_id, workout_id) VALUES (@sets, @reps, @duration, @exercise_id, @workout_id)"; 
         AddParameter(command, "@sets", workoutExercise.Sets);
         AddParameter(command, "@reps", workoutExercise.Reps);
+        AddParameter(command, "@duration", workoutExercise.Duration);
         AddParameter(command, "@exercise_id", workoutExercise.Exercise.Id);
         AddParameter(command, "@workout_id", workoutExercise.Workout.Id);
         command.ExecuteNonQuery();
@@ -62,12 +55,12 @@ public class WorkoutExerciseDbRepository : BaseRepository, IWorkoutExerciseRepos
     private WorkoutExercise MapDbRowToWorkoutExercise(IDataRecord reader)
     {
         var exerciseId = Convert.ToInt64(reader["exercise_id"]);
-        var exercise = _exerciseRepository.GetById(exerciseId);
+        var exercise = new ExerciseDbRepository().GetById(exerciseId);
 
         var workoutId = Convert.ToInt64(reader["workout_id"]);
-        var workout = _workoutRepository.GetById(workoutId);
+        var workout = new WorkoutDbRepository().GetById(workoutId);
 
         return new WorkoutExercise(Convert.ToInt64(reader["id"]), Convert.ToInt32(reader["sets"]),
-            Convert.ToInt32(reader["reps"]), exercise, workout);
+            Convert.ToInt32(reader["reps"]), Convert.ToInt32(reader["duration"]), exercise, workout);
     }
 }
