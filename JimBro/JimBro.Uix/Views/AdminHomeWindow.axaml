@@ -1,0 +1,53 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="800"
+        d:DesignHeight="450"
+        x:Class="JimBro.Uix.AdminHomeWindow"
+        Title="Administratorski nalog">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0"
+                Background="#4F6D7A"
+                Padding="20">
+
+            <TextBlock Text="ADMINISTRATORSKI NALOG"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       FontSize="24"
+                       FontWeight="Bold"/>
+        </Border>
+        
+        <StackPanel Grid.Row="1"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Spacing="12">
+
+            <Button Content="Rekviziti"
+                    Click="AccessoriesCRUD_Click"
+                    Width="180"
+                    Padding="15,8"
+                    FontSize="14"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+            <Button Content="Odjavi se"
+                    Click="Logout_Click"
+                    Width="180"
+                    Padding="15,8"
+                    FontSize="14"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

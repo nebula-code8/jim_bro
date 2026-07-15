@@ -1,0 +1,46 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="JimBro.Uix.Views.TrainerRequestsWindow"
+        Title="TrainerRequests">
+        
+        <Grid Margin="10">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+    
+        <DataGrid x:Name="RequestsDataGrid"
+                  Grid.Row="0"
+                  MaxHeight="400"
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                        <DataGridTextColumn Header="Ime" Binding="{Binding Name}" Width="100"/>
+                        <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}" Width="100"/>
+                        <DataGridTextColumn Header="Pol" Binding="{Binding Gender}" Width="100"/>
+                        <DataGridTextColumn Header="Datum rođenja" Binding="{Binding DateOfBirth, StringFormat='dd.MM.yyyy'}" Width="100"/>
+                        <DataGridTextColumn Header="Telefon" Binding="{Binding PhoneNumber}" Width="100"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding EmailAddress}" Width="150"/>
+                        <DataGridTextColumn Header="Visina" Binding="{Binding Height}" Width="50"/>
+                        <DataGridTextColumn Header="Tezina" Binding="{Binding Weight}" Width="50"/>
+                        <DataGridTextColumn Header="Cilj" Binding="{Binding Goal}" Width="150"/>
+                        <DataGridTextColumn Header="Zdravestveni problemi" Binding="{Binding HealthProblems}" Width="200"/>
+                </DataGrid.Columns>
+        </DataGrid>
+                
+                <TextBlock Grid.Row="1" x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
+        
+                <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Prihvati zahtev" Name="AcceptButton" Click="AcceptButton_Click" Width="200"></Button>
+                        <Button Content="Odbij zahtev" Name="RejectButton" Click="RejectButton_Click" Width="200"></Button>
+                        <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
+                </StackPanel>
+        </Grid>
+        
+</Window>

@@ -1,0 +1,53 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         mc:Ignorable="d"
+         d:DesignWidth="450"
+         d:DesignHeight="400"
+         x:Class="JimBro.Uix.Views.AccessoryFormWindow"
+         Title="Dodati rekvizit"
+         Width="450"
+         Height="400"
+         WindowStartupLocation="CenterOwner">
+
+    <StackPanel Margin="25"
+                Spacing="10">
+
+        <TextBlock Text="Naziv"/>
+
+        <TextBox x:Name="NameTextBox"
+                 Watermark="Upisi naziv"/>
+
+        <TextBlock Text="Opis"/>
+
+        <TextBox x:Name="DescriptionTextBox"
+                 Watermark="Upisi opis"
+                 AcceptsReturn="True"
+                 Height="100"
+                 TextWrapping="Wrap"/>
+        
+        <TextBlock x:Name="ErrorMessageTextBlock"
+                   Foreground="Red"
+                   TextWrapping="Wrap"
+                   IsVisible="False"/>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Spacing="10"
+                    Margin="0,15,0,0">
+            
+            <Button x:Name="SaveButton"
+                    Content="Dodaj"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="SaveButton_Click"/>
+            
+            <Button Content="Otkazi"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Click="CancelButton_Click"/>
+        </StackPanel>
+
+    </StackPanel>
+</Window>
