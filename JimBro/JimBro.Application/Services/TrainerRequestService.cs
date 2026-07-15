@@ -19,6 +19,8 @@ public class TrainerRequestService : ITrainerRequestService
         
         if (existingRequest != null && existingRequest.Status == RequestStatus.Pending)
             throw new Exception("Već ste poslali zahtev za ovog trenera!");
+        if (existingRequest != null && (existingRequest.Status == RequestStatus.Accepted || existingRequest.Status == RequestStatus.Rejected))
+            throw new Exception("Već ste prihvaceni ili odbijeni od strane ovog trenera!");
         
         _trainerRequestRepository.Insert(clientId, trainerId);
     }

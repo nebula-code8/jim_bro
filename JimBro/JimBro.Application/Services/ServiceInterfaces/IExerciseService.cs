@@ -6,5 +6,5 @@ public interface IExerciseService
 {
     Exercise? GetById(long id);
     List<Exercise> GetAllExercisesForTrainer(long trainerId);
-    void Insert(Exercise exercise);
+    void CreateExercise(Exercise exercise);
 }

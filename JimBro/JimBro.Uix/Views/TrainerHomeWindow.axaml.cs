@@ -32,4 +32,9 @@ public partial class TrainerHomeWindow : Window
         TrainerRequestsWindow window = new TrainerRequestsWindow(_trainer);
         await window.ShowDialog(this);
     }
+    private async void CreateExerciseButton_Click(object? sender, RoutedEventArgs e)
+    {
+        CreateExerciseWindow window = new  CreateExerciseWindow(_trainer);
+        await window.ShowDialog(this);
+    }
 }

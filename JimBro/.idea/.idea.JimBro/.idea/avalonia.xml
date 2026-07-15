@@ -10,6 +10,7 @@
         <entry key="JimBro.Uix/Views/AdminHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/App.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/ClientHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/CreateExercise.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/LogInForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/MyRequestsWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/Profile.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
@@ -18,6 +19,7 @@
         <entry key="JimBro.Uix/Views/RequestTrainerWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/TrainerHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/TrainerRequests.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/TrainerRequestsWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
       </map>
     </option>
   </component>

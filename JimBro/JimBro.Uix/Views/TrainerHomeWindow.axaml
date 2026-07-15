@@ -33,7 +33,11 @@
                         <Button Content="Pregled zahteva"
                                 Click="TrainerRequestsButton_Click"
                                 Padding="15,8"
-                                FontSize="14"/>
+                                FontSize="14" Width="200"/>
+                        <Button Content="Dodajte vezbu"
+                                Click="CreateExerciseButton_Click"
+                                Padding="15,8"
+                                FontSize="14" Width="200"/>
                         </StackPanel>
                 </Border>
         </Grid>

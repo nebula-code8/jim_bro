@@ -17,6 +17,11 @@ public class ExerciseService : IExerciseService
 
     public List<Exercise> GetAllExercisesForTrainer(long trainerId) =>
         _exerciseRepository.GetAllExercisesForTrainer(trainerId);
-    
-    public void Insert(Exercise exercise) => _exerciseRepository.Insert(exercise);
+
+    public void CreateExercise(Exercise exercise)
+    {
+        if (string.IsNullOrWhiteSpace(exercise.Name))
+            throw new Exception("Naziv je obavezno polje!");
+        _exerciseRepository.Insert(exercise);
+    }
 }
