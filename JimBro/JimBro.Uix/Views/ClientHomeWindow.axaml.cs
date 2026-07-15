@@ -59,4 +59,10 @@ public partial class ClientHomeWindow : Window
         ClientMachineWindow window = new ClientMachineWindow(_client);
         await window.ShowDialog(this);
     }
+    
+    private async void MyWorkoutsButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientWorkoutsWindow window = new ClientWorkoutsWindow(_client);
+        await window.ShowDialog(this);
+    }
 }

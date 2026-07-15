@@ -48,6 +48,10 @@
                                         Click="MyRequestsButton_Click"
                                         Padding="15,8"
                                         FontSize="14" Width="200"/>
+                                <Button Content="Moji treninzi"
+                                        Click="MyWorkoutsButton_Click"
+                                        Padding="15,8"
+                                        FontSize="14" Width="200"/>
                         </StackPanel>
                 </Border>
         </Grid>

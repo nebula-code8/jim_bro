@@ -46,6 +46,16 @@ public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
     
     private static Workout MapDbRowToWorkout(IDataRecord reader) 
     {
+        DateOnly date;
+        var dateValue = reader["date"];
+        if (dateValue is DateTime dateTime)
+            date = DateOnly.FromDateTime(dateTime);
+        else if (dateValue is DateOnly dateOnly)
+            date = dateOnly;
+        else
+            date = DateOnly.FromDateTime(Convert.ToDateTime(dateValue));
+        
+    
         var trainerId = Convert.ToInt64(reader["trainer_id"]);
         var clientId = Convert.ToInt64(reader["client_Id"]);
         
@@ -53,7 +63,7 @@ public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
         var client = new ClientDbRepository().GetById(clientId);
 
         return new Workout(Convert.ToInt64(reader["id"]),
-            DateOnly.FromDateTime(Convert.ToDateTime(reader["date"])), reader["note"]?.ToString() ?? string.Empty,
+            date, reader["note"]?.ToString() ?? string.Empty,
             trainer: trainer, client);
     }
 }

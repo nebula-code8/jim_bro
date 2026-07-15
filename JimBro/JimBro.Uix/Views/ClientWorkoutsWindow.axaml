@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="JimBro.Uix.Views.ClientWorkoutsWindow"
+        Title="ClientWorkouts">
+        
+        <Grid Margin="10">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+    <TextBlock Grid.Row="0" Text="Svi treninzi" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+        <DataGrid x:Name="WorkoutsDataGrid"
+                  Grid.Row="1"
+                  MaxHeight="400"
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  SelectedItem="{Binding SelectedWorkout}"
+                  ItemsSource="{Binding Workouts}">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="Datum" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}" Width="150"/>
+                        <DataGridTextColumn Header="Napomena" Binding="{Binding Note}" Width="400"/>
+                        <DataGridTextColumn Header="Ime trenera" Binding="{Binding Trainer.Name, FallbackValue=''}" Width="150"/>
+                        <DataGridTextColumn Header="Prezime trenera" Binding="{Binding Trainer.Surname, FallbackValue=''}" Width="150"/>
+                        <DataGridTextColumn Header="Specijalizacija trenera" Binding="{Binding Trainer.Specialization, FallbackValue=''}" Width="150"/>
+                </DataGrid.Columns>
+        </DataGrid>
+                
+                <TextBlock Grid.Row="2" x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
+        
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Pogledaj vezbe" Name="RemoveButton" Click="ShowWorkoutExerciseButton_Click" Width="200"></Button>
+                        <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
+                </StackPanel>
+        </Grid>
+        
+</Window>
