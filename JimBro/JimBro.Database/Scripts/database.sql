@@ -23,6 +23,7 @@ CREATE TABLE client (
     height DOUBLE PRECISION NOT NULL,
     weight DOUBLE PRECISION NOT NULL,
     goal VARCHAR(200) NOT NULL,
+    training_location INT NOT NULL DEFAULT 0,
     health_problems VARCHAR(100)
 );
 

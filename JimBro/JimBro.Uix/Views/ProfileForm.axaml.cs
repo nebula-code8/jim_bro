@@ -39,6 +39,7 @@ public partial class ProfileForm : Window
                 height: Convert.ToDouble(HeightBox.Text),
                 weight: Convert.ToDouble(WeightBox.Text),
                 goal: GoalBox.Text ?? "",
+                trainingLocation: LocationBox.SelectedIndex == 0 ? TrainingLocation.Teratana : TrainingLocation.Kuci,
                 healthProblems: HealthProblemsBox.Text ?? ""
             );
             bool success = _viewModel.Update(client);
@@ -76,6 +77,7 @@ public partial class ProfileForm : Window
         HeightBox.Text = _client.Height.ToString();
         WeightBox.Text = _client.Weight.ToString();
         GoalBox.Text = _client.Goal.ToString();
+        LocationBox.SelectedIndex = _client.TrainingLocation == TrainingLocation.Teratana ? 0 : 1;
         HealthProblemsBox.Text = _client.HealthProblems;
     }
 }

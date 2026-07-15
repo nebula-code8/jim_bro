@@ -22,6 +22,10 @@
                 <TextBox x:Name="HeightBox" Watermark="Visina"></TextBox>
                 <TextBox x:Name="WeightBox" Watermark="Tezina"></TextBox>
                 <TextBox x:Name="GoalBox" Watermark="Cilj"></TextBox>
+                <ComboBox x:Name="LocationBox" HorizontalAlignment="Stretch" SelectedIndex="0"> 
+                        <ComboBoxItem Content="Teretana"></ComboBoxItem>
+                        <ComboBoxItem Content="Kuca"></ComboBoxItem>
+                </ComboBox>
                 <TextBox x:Name="HealthProblemsBox" Watermark="Zdravstveni problemi" MinLines="4"></TextBox>
         
                 <TextBlock x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>

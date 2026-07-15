@@ -8,11 +8,11 @@
 ('Nikola', 'Nikolić', 0, '1997-12-18', '+381-60-    1234573', 'nikola@example.com', 'nikola123', 1),
 ('Ivana', 'Ivanović', 1, '2001-09-05', '+381-60-1234574', 'ivana@example.com', 'ivana123', 2);
 
-INSERT INTO client (id, height, weight, goal, health_problems) VALUES
-(1, 180, 80, 'to get stronger', NULL),
-(3, 175, 90, 'run 5k',NULL),
-(5, 193, 84, 'to get faster',NULL),
-(6, 182, 80, 'to get stronger',NULL);
+INSERT INTO client (id, height, weight, goal, health_problems, training_location) VALUES
+(1, 180, 80, 'to get stronger', NULL, 0),
+(3, 175, 90, 'run 5k',NULL, 1),
+(5, 193, 84, 'to get faster',NULL, 0),
+(6, 182, 80, 'to get stronger',NULL, 1);
 
 INSERT INTO trainer (id, specialization, biography, license) VALUES
 (2, 'Yoga', '...', 'Certifed Personal Trainer'),

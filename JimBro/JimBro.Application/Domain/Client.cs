@@ -5,21 +5,32 @@ public class Client : User
     public double Height { get; private set; }
     public double Weight { get; private set; }
     public string Goal { get; private set; }
+    public TrainingLocation TrainingLocation { get; private set; }
     public String HealthProblems { get; private set; }
-    
-    public Client(string name, string surname, Gender gender, DateOnly dateOfBirth, string phoneNumber, string emailAddress, string password, double height, double weight, string goal, string healthProblems) : base(name, surname, gender, dateOfBirth, phoneNumber, emailAddress, password, Role.Client)
+    public List<Accessory> Accessories { get; private set; } = new();
+    public List<Machine> Machines { get; private set; } = new();
+
+    public Client(string name, string surname, Gender gender, DateOnly dateOfBirth, string phoneNumber,
+        string emailAddress, string password, double height, double weight, string goal,
+        TrainingLocation trainingLocation, string healthProblems) : base(name, surname, gender, dateOfBirth,
+        phoneNumber, emailAddress, password, Role.Client)
     {
-        Height =  height;
+        Height = height;
         Weight = weight;
         Goal = goal;
+        TrainingLocation = trainingLocation;
         HealthProblems = healthProblems;
     }
 
-    public Client(long id, string name, string surname, Gender gender, DateOnly dateOfBirth, string phoneNumber, string emailAddress, string password, double height, double weight, string goal, string healthProblems) : base(id, name, surname, gender, dateOfBirth, phoneNumber, emailAddress, password, Role.Client)
+    public Client(long id, string name, string surname, Gender gender, DateOnly dateOfBirth, string phoneNumber,
+        string emailAddress, string password, double height, double weight, string goal,
+        TrainingLocation trainingLocation, string healthProblems) : base(id, name, surname, gender, dateOfBirth,
+        phoneNumber, emailAddress, password, Role.Client)
     {
-        Height =  height;
+        Height = height;
         Weight = weight;
         Goal = goal;
+        TrainingLocation = trainingLocation;
         HealthProblems = healthProblems;
     }
 }
