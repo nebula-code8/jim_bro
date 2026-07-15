@@ -33,4 +33,26 @@ public class Client : User
         TrainingLocation = trainingLocation;
         HealthProblems = healthProblems;
     }
+    
+    public void AddAccessory(Accessory accessory)
+    {
+        if (!Accessories.Contains(accessory))
+            Accessories.Add(accessory);
+    }
+    
+    public void RemoveAccessory(Accessory accessory)
+    {
+        Accessories.Remove(accessory);
+    }
+    
+    public void AddMachine(Machine machine)
+    {
+        if (!Machines.Contains(machine))
+            Machines.Add(machine);
+    }
+    
+    public void RemoveMachine(Machine machine)
+    {
+        Machines.Remove(machine);
+    }
 }

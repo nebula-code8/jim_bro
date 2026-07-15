@@ -43,8 +43,14 @@ public partial class ClientHomeWindow : Window
     }
     
     private async void MyRequestsButton_Click(object? sender, RoutedEventArgs e)
-        {
+    {
             MyRequestsWindow window = new MyRequestsWindow(_client);
             await window.ShowDialog(this);
-        }
+    }
+    
+    private async void AccessoriesButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientAccessoryWindow window = new ClientAccessoryWindow(_client);
+        await window.ShowDialog(this);
+    }
 }

@@ -2,6 +2,8 @@
 DROP TABLE IF EXISTS trainer_requests CASCADE;
 DROP TABLE IF EXISTS trainer CASCADE;
 DROP TABLE IF EXISTS client CASCADE;
+DROP TABLE IF EXISTS client_accessories CASCADE;
+DROP TABLE IF EXISTS client_machines CASCADE;
 DROP TABLE IF EXISTS exercises CASCADE;
 DROP TABLE IF EXISTS machines CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
@@ -62,4 +64,16 @@ CREATE TABLE exercises (
     trainer_id BIGINT REFERENCES users(id),
     accessory_id BIGINT REFERENCES accessories(id),
     machine_id BIGINT REFERENCES machines(id)
+);
+
+CREATE TABLE client_accessories (
+    client_id BIGINT REFERENCES client(id) ON DELETE CASCADE,
+    accessory_id BIGINT REFERENCES accessories(id) ON DELETE CASCADE,
+    PRIMARY KEY (client_id, accessory_id)
+);
+
+CREATE TABLE client_machines (
+    client_id BIGINT REFERENCES client(id) ON DELETE CASCADE,
+    machine_id BIGINT REFERENCES machines(id) ON DELETE CASCADE,
+    PRIMARY KEY (client_id, machine_id)
 );
