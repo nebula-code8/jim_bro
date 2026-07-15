@@ -19,14 +19,14 @@ public partial class CreateExerciseWindow : Window
     {
         InitializeComponent();
         _currentTrainer = trainer;
-        _viewModel = new ExerciseViewModel(new ExerciseService(new ExerciseDbRepository()), new EquipmentService(new EquipmentDbRepository()), new MachineService(new MachineDbRepository()), _currentTrainer);
+        _viewModel = new ExerciseViewModel(new ExerciseService(new ExerciseDbRepository()), new AccessoryService(new AccessoryDbRepository()), new MachineService(new MachineDbRepository()), _currentTrainer);
         DataContext = _viewModel;
         ExercisesDataGrid.ItemsSource = _viewModel.Exercises;
-        EquipmentComboBox.ItemsSource = _viewModel.Equipments;
+        AccessoryComboBox.ItemsSource = _viewModel.Accessories;
         MachineComboBox.ItemsSource = _viewModel.Machines;
         
         _viewModel.LoadExercises();
-        _viewModel.LoadEquipments();
+        _viewModel.LoadAccessories();
         _viewModel.LoadMachines();
     }
     
@@ -64,5 +64,9 @@ public partial class CreateExerciseWindow : Window
         NameBox.Text = string.Empty;
         DescriptionBox.Text = string.Empty;
         VideoBox.Text = string.Empty;
+        _viewModel.SelectedAccessory = null;
+        _viewModel.SelectedMachine = null;
+        AccessoryComboBox.SelectedItem = null;
+        MachineComboBox.SelectedItem = null;
     }
 }

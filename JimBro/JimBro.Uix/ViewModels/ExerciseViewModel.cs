@@ -7,20 +7,20 @@ namespace JimBro.Uix.ViewModels;
 public class ExerciseViewModel
 {
     private readonly IExerciseService _exerciseService;
-    private readonly IEquipmentService _equipmentService;
+    private readonly IAccessoryService _accessoryService;
     private readonly IMachineService _machineService;
     private readonly Trainer _trainer;
     public ObservableCollection<Exercise> Exercises { get; private set; } = new();
-    public ObservableCollection<Equipment> Equipments { get; private set; } = new();
+    public ObservableCollection<Accessory> Accessories { get; private set; } = new();
     public ObservableCollection<Machine> Machines { get; private set; } = new();
-    public Equipment? SelectedEquipment { get; set; }
+    public Accessory? SelectedAccessory { get; set; }
     public Machine? SelectedMachine { get; set; }
     public string ErrorMessage { get; private set; } = string.Empty;
 
-    public ExerciseViewModel(IExerciseService exerciseService, IEquipmentService equipmentService, IMachineService machineService, Trainer trainer)
+    public ExerciseViewModel(IExerciseService exerciseService, IAccessoryService accessoryService, IMachineService machineService, Trainer trainer)
     {
         _exerciseService = exerciseService;
-        _equipmentService = equipmentService;
+        _accessoryService = accessoryService;
         _machineService = machineService;
         _trainer = trainer;
     }
@@ -43,14 +43,14 @@ public class ExerciseViewModel
         }
     }
     
-    public void LoadEquipments()
+    public void LoadAccessories()
     {
         try
         {
-            var equipments = _equipmentService.GetAllEquipments();
-            Equipments.Clear();
-            foreach (var equipment in equipments)
-                Equipments.Add(equipment);
+            var accessories = _accessoryService.GetAllAccessories();
+            Accessories.Clear();
+            foreach (var accessory in accessories)
+                Accessories.Add(accessory);
         }
         catch (Exception ex)
         {
@@ -78,7 +78,7 @@ public class ExerciseViewModel
         ErrorMessage = string.Empty;
         try
         {
-            var exercise = new Exercise(name, description, videoUrl, _trainer.Id, SelectedEquipment, SelectedMachine);
+            var exercise = new Exercise(name, description, videoUrl, _trainer.Id, SelectedAccessory, SelectedMachine);
             _exerciseService.CreateExercise(exercise);
             return true;
         }

@@ -19,12 +19,25 @@ INSERT INTO trainer (id, specialization, biography, license) VALUES
 (4, 'Cardio', '...', 'Certifed Personal Trainer'),
 (7, 'Bodybuilding', '...', 'Certifed Personal Trainer');
 
-INSERT INTO equipments (id, name, description) VALUES
-(1, 'Teg', 'Teg od 5kg'),
-(2, 'Teg', 'Teg od 10kg'),
-(3, 'Teg', 'Teg od 20kg');
+INSERT INTO trainer_requests (client_id, trainer_id, status) VALUES
+(6, 2, 0),
+(5, 2, 1),
+(3, 2, 0),
+(1, 2, 2),
+(1, 4, 1);
+
+INSERT INTO accessories (name, description) VALUES
+('Bučica', 'Bučica težine 5 kg, namenjena vežbama snage.'),
+('Girja', 'Girja težine 12 kg, namenjena funkcionalnom treningu.'),
+('Medicinska lopta', 'Medicinska lopta težine 4 kg, namenjena vežbama snage i koordinacije.'),
+('Elastična traka', 'Lagana elastična traka namenjena vežbama otpora i istezanja.'),
+('Vijača', 'Lagana vijača namenjena kardio treningu i vežbama koordinacije.');
 
 INSERT INTO machines (id, name, description) VALUES
 (1, 'Mašina za potisak za grudi', 'Mašina za potisak za grudi'),
 (2, 'Smit mašina', 'Smit mašina'),
 (3, 'Traka za trčanje', 'Traka za trčanje');
+
+INSERT INTO exercises (name, description, video_url, trainer_id, accessory_id, machine_id) VALUES
+('Sklekovi', 'Sklekovi', 'https:///', 2, null, null),
+('Zgibovi', 'Zgibovi', 'https:///', 2, 2, null);
