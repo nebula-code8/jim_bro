@@ -32,8 +32,12 @@
         </Border>
                 <Border Grid.Row="1" Background="#F0F4F8" Padding="30">
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="15">
-                                <Button Content="Dodajte rekvizite"
+                                <Button Content="Moji rekviziti"
                                         Click="AccessoriesButton_Click"
+                                        Padding="15,8"
+                                        FontSize="14" Width="200"/>
+                                <Button Content="Moje sprave"
+                                        Click="MachinesButton_Click"
                                         Padding="15,8"
                                         FontSize="14" Width="200"/>
                                 <Button Content="Posaljite zahtev treneru"

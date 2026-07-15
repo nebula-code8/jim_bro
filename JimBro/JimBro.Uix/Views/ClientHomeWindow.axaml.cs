@@ -53,4 +53,10 @@ public partial class ClientHomeWindow : Window
         ClientAccessoryWindow window = new ClientAccessoryWindow(_client);
         await window.ShowDialog(this);
     }
+    
+    private async void MachinesButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientMachineWindow window = new ClientMachineWindow(_client);
+        await window.ShowDialog(this);
+    }
 }
