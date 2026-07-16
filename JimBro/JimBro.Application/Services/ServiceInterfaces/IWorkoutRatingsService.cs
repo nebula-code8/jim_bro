@@ -5,5 +5,5 @@ namespace JimBro.Services.ServiceInterfaces;
 public interface IWorkoutRatingsService
 {
     void Insert(WorkoutRating workoutRating);
-    List<WorkoutRating> GetTrainersRatings(long trainerId);
+    List<WorkoutRating> GetClientsRatings(long clientId);
 }

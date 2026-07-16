@@ -13,15 +13,17 @@ namespace JimBro.Uix.Views;
 public partial class RateWorkoutWindow : Window
 {
     private readonly RateWorkoutViewModel _viewModel;
+    private readonly ClientWorkoutsViewModel _clientWorkoutsViewModel;
     private Trainer? _selectedTrainer;
     private readonly Client _currentClient;
     
-    public RateWorkoutWindow(Workout workout, Client client)
+    public RateWorkoutWindow(Workout workout, Client client, ClientWorkoutsViewModel clientWorkoutsViewModel)
     {
         InitializeComponent();
         _currentClient = client;
         _viewModel =
             new RateWorkoutViewModel(new WorkoutRatingsService(new WorkoutRatingsDbRepository()), client, workout);
+        _clientWorkoutsViewModel = clientWorkoutsViewModel;
         DataContext = _viewModel;
     }
     
@@ -36,6 +38,7 @@ public partial class RateWorkoutWindow : Window
                 ErrorMessageTextBlock.Text = "Uspešno ste ocenili trening!";
                 ErrorMessageTextBlock.Foreground = Brushes.Green;
                 ErrorMessageTextBlock.IsVisible = true;
+                _clientWorkoutsViewModel.LoadWorkoutRatings();
                 RatingBox.Text = "";
                 CommentBox.Text = "";
             } else{

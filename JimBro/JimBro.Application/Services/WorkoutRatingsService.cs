@@ -24,5 +24,5 @@ public class WorkoutRatingsService : IWorkoutRatingsService
         _repository.Insert(workoutRating);
     }
 
-    public List<WorkoutRating> GetTrainersRatings(long trainerId) => _repository.GetTrainersRatings(trainerId);
+    public List<WorkoutRating> GetClientsRatings(long clientId) => _repository.GetClientsRatings(clientId);
 }

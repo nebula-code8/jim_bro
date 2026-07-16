@@ -20,12 +20,12 @@ public class WorkoutRatingsDbRepository : BaseRepository, IWorkoutRatingsReposit
         command.ExecuteNonQuery();
     }
     
-    public List<WorkoutRating> GetTrainersRatings(long trainerId)
+    public List<WorkoutRating> GetClientsRatings(long clientId)
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = @"SELECT wr.*, c.id as ClientId, c.name as ClientName, c.surname as ClientSurname, w.id as WorkoutId, 
-       FROM workout_ratings wr INNER JOIN users c ON wr.client_id = c.id INNER JOIN workout w ON wr.workout_id = w.id";
+        command.CommandText = @"SELECT wr.* FROM workout_ratings wr WHERE wr.client_id = @clientId ORDER BY wr.completion_date DESC";
+        AddParameter(command, "@clientId", clientId);
         var ratings = new List<WorkoutRating>();
         using IDataReader reader = command.ExecuteReader();
         while (reader.Read())
@@ -35,6 +35,15 @@ public class WorkoutRatingsDbRepository : BaseRepository, IWorkoutRatingsReposit
     
     private WorkoutRating MapDbRowToWorkoutRatings(IDataRecord reader)
     {
+        DateOnly date;
+        var dateValue = reader["completion_date"];
+        if (dateValue is DateTime dateTime)
+            date = DateOnly.FromDateTime(dateTime);
+        else if (dateValue is DateOnly dateOnly)
+            date = dateOnly;
+        else
+            date = DateOnly.FromDateTime(Convert.ToDateTime(dateValue));
+        
         var clientId = Convert.ToInt64(reader["client_id"]);
         var workoutId = Convert.ToInt64(reader["workout_id"]);
         
@@ -42,6 +51,6 @@ public class WorkoutRatingsDbRepository : BaseRepository, IWorkoutRatingsReposit
         var workout = new WorkoutDbRepository().GetById(workoutId);
 
         return new WorkoutRating(Convert.ToInt64(reader["id"]), Convert.ToInt32(reader["rating"]),
-            reader["comment"].ToString(), DateOnly.FromDateTime(DateTime.Today), workout, client);
+            reader["comment"].ToString(), date, workout, client);
     }
 }
