@@ -10,9 +10,7 @@ public class TrainerRatingsDbRepository : BaseRepository, ITrainerRatingsReposit
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = @"SELECT tr.*, c.id as ClientId, c.name as ClientName, c.surname as ClientSurname, t.id as TrainerId, 
-       t.name as TrainerName, t.surname as TrainerSurname, tr.specialization as TrainerSpecialization FROM trainer_ratings tr
-            INNER JOIN users c ON tr.client_id = c.id INNER JOIN trainer t ON tr.trainer_id = t.id INNER JOIN users u ON t.id = u.id";
+        command.CommandText = @"INSERT INTO trainer_ratings (rating, comment, client_id, trainer_id) VALUES (@rating, @comment, @client_id, @trainer_id)";
         AddParameter(command, "@rating", trainerRating.Rating);
         AddParameter(command, "@comment", trainerRating.Comment);
         AddParameter(command, "@client_id", trainerRating.Client.Id);
@@ -24,7 +22,9 @@ public class TrainerRatingsDbRepository : BaseRepository, ITrainerRatingsReposit
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = @"";
+        command.CommandText = @"SELECT tr.*, c.id as ClientId, c.name as ClientName, c.surname as ClientSurname, t.id as TrainerId, 
+       t.name as TrainerName, t.surname as TrainerSurname, tr.specialization as TrainerSpecialization FROM trainer_ratings tr
+            INNER JOIN users c ON tr.client_id = c.id INNER JOIN trainer t ON tr.trainer_id = t.id INNER JOIN users u ON t.id = u.id";
         var ratings = new List<TrainerRating>();
         using IDataReader reader = command.ExecuteReader();
         while (reader.Read())

@@ -18,8 +18,8 @@ public class TrainerRatingsService : ITrainerRatingsService
         if(string.IsNullOrEmpty(trainerRating.Rating.ToString()))
             throw new Exception("Ocena je obavezno polje!");
         
-        if(trainerRating.Rating <= 0 || trainerRating.Rating > 10)
-            throw new Exception("Ocena mora biti izmedju 0 i 10!");
+        if(trainerRating.Rating <= 1 || trainerRating.Rating > 10)
+            throw new Exception("Ocena mora biti izmedju 1 i 10!");
         _repository.Insert(trainerRating);    
     } 
     

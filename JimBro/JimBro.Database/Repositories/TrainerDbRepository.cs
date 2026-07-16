@@ -30,6 +30,22 @@ public class TrainerDbRepository : BaseRepository, ITrainerRepository
         return trainers;
     }
     
+    public List<Trainer> GetClientTrainers(long clientId)
+    {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText =
+            @"SELECT u.*, t.specialization, t.biography, t.license FROM users u INNER JOIN trainer t ON u.id = t.id INNER JOIN trainer_requests tr ON t.id = tr.trainer_id 
+        WHERE tr.client_id = @clientId AND u.role = @role AND tr.status = 1";
+        AddParameter(command, "@role", (int)Role.Trainer);
+        AddParameter(command, "@clientId", clientId);
+        var trainers = new List<Trainer>();
+        using IDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+            trainers.Add(MapDbRowToTrainer(reader));
+        return trainers;
+    }
+    
     private static Trainer MapDbRowToTrainer(IDataRecord reader)
     {
         DateOnly dateOfBirth;

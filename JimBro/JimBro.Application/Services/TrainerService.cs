@@ -14,5 +14,6 @@ public class TrainerService : ITrainerService
     }
     
     public List<Trainer> GetAllTrainers() => _trainerRepository.GetAllTrainers();
+    public List<Trainer> GetClientTrainers(long clientId) => _trainerRepository.GetClientTrainers(clientId);
     public Trainer? GetById(long id) => _trainerRepository.GetById(id);
 }
