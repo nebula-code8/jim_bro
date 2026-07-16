@@ -23,6 +23,7 @@
                   SelectedItem="{Binding SelectedWorkout}"
                   ItemsSource="{Binding Workouts}">
                 <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="150"/>
                         <DataGridTextColumn Header="Datum" Binding="{Binding Date, StringFormat='dd.MM.yyyy'}" Width="150"/>
                         <DataGridTextColumn Header="Napomena" Binding="{Binding Note}" Width="400"/>
                         <DataGridTextColumn Header="Ime trenera" Binding="{Binding Trainer.Name, FallbackValue=''}" Width="150"/>

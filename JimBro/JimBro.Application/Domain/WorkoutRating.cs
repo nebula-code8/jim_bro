@@ -16,6 +16,7 @@ public class WorkoutRating
         Comment = comment;
         CompletionDate = completionDate;
         Workout = workout;
+        Client = client;
     }
     
     public WorkoutRating(int rating, string comment, DateOnly completionDate, Workout workout, Client client)
@@ -24,5 +25,6 @@ public class WorkoutRating
         Comment = comment;
         CompletionDate = completionDate;
         Workout = workout;
+        Client = client;
     }
 }
