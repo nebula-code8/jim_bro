@@ -29,5 +29,17 @@ public partial class ClientWorkoutsWindow : Window
         ClientWorkoutExercisesWindow window = new ClientWorkoutExercisesWindow(_viewModel.SelectedWorkout, _client);
         await window.ShowDialog(this);
     }
+    
+    private async void RateWorkoutButton_Click(object? sender, RoutedEventArgs e)
+    {
+        if (_viewModel.SelectedWorkout == null)
+        {
+            ErrorMessageTextBlock.Text = "Izaberite trening!";
+            ErrorMessageTextBlock.IsVisible = true;
+            return;
+        }
+        RateWorkoutWindow window = new RateWorkoutWindow(_viewModel.SelectedWorkout, _client);
+        await window.ShowDialog(this);
+    }
     private void CloseButton_Click(object? sender, RoutedEventArgs e) => Close();
 }

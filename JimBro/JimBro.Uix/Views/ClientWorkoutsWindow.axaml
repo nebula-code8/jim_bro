@@ -35,6 +35,7 @@
                 <TextBlock Grid.Row="2" x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
         
                 <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Oceni trening" Click="RateWorkoutButton_Click" Width="200"></Button>
                         <Button Content="Pogledaj vezbe" Click="ShowWorkoutExerciseButton_Click" Width="200"></Button>
                         <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
                 </StackPanel>
