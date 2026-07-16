@@ -38,7 +38,8 @@ CREATE TABLE trainer (
     id BIGINT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
     specialization VARCHAR(100) NOT NULL,
     biography TEXT NOT NULL,
-    license VARCHAR(100) NOT null
+    license VARCHAR(100) NOT null,
+    average_rating Double Precision
 );
 
 CREATE TABLE trainer_requests (

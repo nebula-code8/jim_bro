@@ -19,6 +19,12 @@ public partial class AdminHomeWindow : Window
         AccessoriesWindow accessoriesWindow = new AccessoriesWindow();
         await accessoriesWindow.ShowDialog(this);
     }
+    
+    private async void AverageRatings_Click(object? sender, RoutedEventArgs e)
+    {
+        AverageTrainerRatingsWindow window = new AverageTrainerRatingsWindow();
+        await window.ShowDialog(this);
+    }
 
     private void Logout_Click(object? sender, RoutedEventArgs e)
     {

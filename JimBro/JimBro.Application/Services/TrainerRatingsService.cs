@@ -20,6 +20,13 @@ public class TrainerRatingsService : ITrainerRatingsService
         
         if(trainerRating.Rating <= 1 || trainerRating.Rating > 10)
             throw new Exception("Ocena mora biti izmedju 1 i 10!");
+        
+        var existingRatings = _repository.GetClientRatings(trainerRating.Client.Id);
+        foreach (var rating in existingRatings)
+        {
+            if (rating.Trainer.Id == trainerRating.Trainer.Id) 
+                throw new Exception("Vec ste ocenili trenera!");
+        }
         _repository.Insert(trainerRating);    
     } 
     

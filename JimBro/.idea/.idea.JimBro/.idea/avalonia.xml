@@ -12,6 +12,7 @@
         <entry key="JimBro.Uix/Views/AccessoryFormWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/AdminHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/App.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/AverageTrainerRatings.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/ClientAccessoryWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/ClientHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/ClientMachineWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />

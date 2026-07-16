@@ -21,6 +21,13 @@ public class ExerciseRatingsService : IExerciseRatingsService
         if(exerciseRating.Rating <= 1 || exerciseRating.Rating > 10)
             throw new Exception("Ocena mora biti izmedju 1 i 10!");
         
+        var existingRatings = _exerciseRatingsRepository.GetClientsRatings(exerciseRating.Client.Id, exerciseRating.WorkoutExercise.Id);
+        foreach (var rating in existingRatings)
+        {
+            if (rating.WorkoutExercise.Id == exerciseRating.WorkoutExercise.Id) 
+                throw new Exception("Vec ste ocenili ovu vezbu!");
+        }
+        
         _exerciseRatingsRepository.Insert(exerciseRating);
     } 
     public List<ExerciseRating> GetClientsRatings(long clientId, long exerciseId) => _exerciseRatingsRepository.GetClientsRatings(clientId, exerciseId);

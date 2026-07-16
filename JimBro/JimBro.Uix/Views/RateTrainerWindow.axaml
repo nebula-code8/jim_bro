@@ -42,7 +42,7 @@
                           ItemsSource="{Binding TrainerRatings}">
                         <DataGrid.Columns>
                                 <DataGridTextColumn Header="Id trenera" Binding="{Binding Id}" Width="200"/>
-                                <DataGridTextColumn Header="Ocena" Binding="{Binding Grade}" Width="200"/>
+                                <DataGridTextColumn Header="Ocena" Binding="{Binding Rating}" Width="200"/>
                                 <DataGridTextColumn Header="Komentar" Binding="{Binding Comment}" Width="400"/>
                         </DataGrid.Columns>
                 </DataGrid>

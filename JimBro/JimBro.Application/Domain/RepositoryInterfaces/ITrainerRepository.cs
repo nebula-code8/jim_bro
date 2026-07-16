@@ -5,4 +5,5 @@ public interface ITrainerRepository
     List<Trainer> GetAllTrainers();
     List<Trainer> GetClientTrainers(long clientId);
     Trainer? GetById(long id);
+    List<Trainer> GetAllTrainersWithRatings();
 }

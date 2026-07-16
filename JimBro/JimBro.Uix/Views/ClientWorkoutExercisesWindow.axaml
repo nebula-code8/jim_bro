@@ -26,6 +26,7 @@
                   SelectedItem="{Binding SelectedWorkoutExercise}"
                   ItemsSource="{Binding WorkoutExercises}">
                 <DataGrid.Columns>
+                        <DataGridTextColumn Header="Id vezbe" Binding="{Binding Id}" Width="150"/>
                         <DataGridTextColumn Header="Naziv vezbe" Binding="{Binding Exercise.Name}" Width="150"/>
                         <DataGridTextColumn Header="Opis vezbe" Binding="{Binding Exercise.Description}" Width="400"/>
                         <DataGridTextColumn Header="Video url vezbe" Binding="{Binding Exercise.VideoUrl}" Width="150"/>

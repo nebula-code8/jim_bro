@@ -21,6 +21,13 @@ public class WorkoutRatingsService : IWorkoutRatingsService
         
         if(workoutRating.Rating <= 1 || workoutRating.Rating > 10)
             throw new Exception("Ocena mora biti izmedju 1 i 10!");
+        
+        var existingRatings = _repository.GetClientsRatings(workoutRating.Client.Id);
+        foreach (var rating in existingRatings)
+        {
+            if (rating.Workout.Id == workoutRating.Workout.Id) 
+                throw new Exception("Vec ste ocenili ovaj trening!");
+        }
         _repository.Insert(workoutRating);
     }
 
