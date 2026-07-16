@@ -29,6 +29,23 @@ public class WorkoutExerciseDbRepository : BaseRepository, IWorkoutExerciseRepos
         return workoutExercises;
     }
     
+    public List<WorkoutExercise> GetWorkoutexercisesForClient(long clientId, long workoutId)
+    {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText =@"SELECT we.*, e.name as ExerciseName, e.description as ExerciseDescription, a.id as AccessoryId, a.name as AccessoryName,
+       m.id as MachineId, m.name as MachineName FROM workout_exercise we  INNER JOIN workout w ON we.workout_id = w.id INNER JOIN exercises e 
+           ON we.exercise_id = e.id LEFT JOIN accessories a ON e.accessory_id = a.id LEFT JOIN machines m ON e.machine_id = m.id 
+                                                WHERE w.client_id = @clientId AND we.workout_id = @workoutId";
+        AddParameter(command, "@clientId", clientId);
+        AddParameter(command, "@workoutId", workoutId);
+        var workoutExercises = new List<WorkoutExercise>();
+        using IDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+            workoutExercises.Add(MapDbRowToWorkoutExercise(reader));
+        return workoutExercises;
+    }
+    
     public void Insert(WorkoutExercise workoutExercise)
     {
         using IDbConnection connection = CreateConnection();

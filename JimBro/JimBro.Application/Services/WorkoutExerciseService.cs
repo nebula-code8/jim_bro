@@ -15,6 +15,7 @@ public class WorkoutExerciseService : IWorkoutExerciseService
 
     public WorkoutExercise? GetById(long id) => _workoutExerciseRepository.GetById(id);
     public List<WorkoutExercise> GetByWorkoutId(long workoutId) =>  _workoutExerciseRepository.GetByWorkoutId(workoutId);
+    public List<WorkoutExercise> GetWorkoutexercisesForClient(long clientId, long workoutId) => _workoutExerciseRepository.GetWorkoutexercisesForClient(clientId, workoutId);
 
     public void Insert(WorkoutExercise workoutExercise)
     {
