@@ -19,12 +19,13 @@ public class ExerciseRatingsDbRepository : BaseRepository, IExerciseRatingsRepos
         command.ExecuteNonQuery();
     }
     
-    public List<ExerciseRating> GetClientsRatings(long clientId)
+    public List<ExerciseRating> GetClientsRatings(long clientId, long workoutId)
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = @"SELECT er.* FROM exercise_ratings er WHERE er.client_id = @clientId ORDER BY wr.completion_date DESC";
+        command.CommandText = @"SELECT er.* FROM exercise_ratings er INNER JOIN workout_exercise we ON er.exercise_id = we.id WHERE er.client_id = @clientId AND we.workout_id = @workoutId ORDER BY er.completion_date DESC";
         AddParameter(command, "@clientId", clientId);
+        AddParameter(command, "@workoutId", workoutId);
         var ratings = new List<ExerciseRating>();
         using IDataReader reader = command.ExecuteReader();
         while (reader.Read())

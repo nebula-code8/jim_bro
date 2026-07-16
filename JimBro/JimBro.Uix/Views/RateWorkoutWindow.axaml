@@ -3,6 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Height="400" Width="300"
         x:Class="JimBro.Uix.Views.RateWorkoutWindow"
         Title="RateWorkoutWindow">
     <Grid Margin="10">
@@ -21,8 +22,8 @@
                 <TextBlock Grid.Row="1" x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
         
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
-                        <Button Content="Oceni trening" Name="RateButton" Click="RateWorkoutButton_Click" Width="200"></Button>
-                        <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
+                        <Button Content="Oceni trening" Name="RateButton" Click="RateWorkoutButton_Click" Width="100"></Button>
+                        <Button Content="Zatvori" Click="CloseButton_Click" Width="100"></Button>
                 </StackPanel>
         </Grid>
 </Window>
