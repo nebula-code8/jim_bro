@@ -7,6 +7,7 @@ public class Workout
     public string Note { get; private set; }
     public Trainer Trainer { get; private set; }
     public Client Client { get; private set; }
+    public Boolean CompletedWorkout { get; set; } = false;
 
     public Workout(long id, DateOnly date, string note, Trainer trainer, Client client)
     {

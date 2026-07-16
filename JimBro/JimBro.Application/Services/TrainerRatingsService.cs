@@ -24,4 +24,5 @@ public class TrainerRatingsService : ITrainerRatingsService
     } 
     
     public List<TrainerRating> GetAllRatings() => _repository.GetAllRatings();
+    public List<TrainerRating> GetClientRatings(long clientId) => _repository.GetClientRatings(clientId);
 }

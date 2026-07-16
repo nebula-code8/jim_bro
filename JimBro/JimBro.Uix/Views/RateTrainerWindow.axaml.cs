@@ -23,7 +23,9 @@ public partial class RateTrainerWindow : Window
         _viewModel = new RateTrainerViewModel(new TrainerService(new TrainerDbRepository()), new TrainerRatingsService(new TrainerRatingsDbRepository()), client);
         DataContext = _viewModel;
         TrainersDataGrid.ItemsSource = _viewModel.Trainers;
+        TrainerRatingsDataGrid.ItemsSource = _viewModel.TrainerRatings;
         _viewModel.LoadTrainers();
+        _viewModel.LoadTrainerRatings();
         TrainersDataGrid.SelectionChanged += TrainersDataGrid_SelectionChanged;
     }
     
@@ -51,7 +53,7 @@ public partial class RateTrainerWindow : Window
                 ErrorMessageTextBlock.Text = "Uspešno ste ocenili trenera!";
                 ErrorMessageTextBlock.Foreground = Brushes.Green;
                 ErrorMessageTextBlock.IsVisible = true;
-                _viewModel.LoadTrainers();
+                _viewModel.LoadTrainerRatings();
                 RatingBox.Text = "";
                 CommentBox.Text = "";
             } else{

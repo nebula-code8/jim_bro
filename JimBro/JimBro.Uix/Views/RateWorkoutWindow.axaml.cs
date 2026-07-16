@@ -35,10 +35,14 @@ public partial class RateWorkoutWindow : Window
 
             if (success)
             {
+                var workoutService = new WorkoutService(new WorkoutDbRepository());
+                workoutService.UpdateWorkoutStatus(_clientWorkoutsViewModel.SelectedWorkout.Id, true);
+                
                 ErrorMessageTextBlock.Text = "Uspešno ste ocenili trening!";
                 ErrorMessageTextBlock.Foreground = Brushes.Green;
                 ErrorMessageTextBlock.IsVisible = true;
                 _clientWorkoutsViewModel.LoadWorkoutRatings();
+                _clientWorkoutsViewModel.LoadWorkouts();
                 RatingBox.Text = "";
                 CommentBox.Text = "";
             } else{

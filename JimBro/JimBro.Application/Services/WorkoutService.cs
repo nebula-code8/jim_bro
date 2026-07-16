@@ -20,4 +20,5 @@ public class WorkoutService : IWorkoutService
     {
         return _repository.Insert(workout);
     }  
+    public void UpdateWorkoutStatus(long workoutId, bool completed) => _repository.UpdateWorkoutStatus(workoutId, completed);
 }

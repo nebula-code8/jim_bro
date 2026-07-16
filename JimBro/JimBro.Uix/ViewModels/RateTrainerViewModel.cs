@@ -10,6 +10,7 @@ public class RateTrainerViewModel
     private readonly ITrainerRatingsService _trainerRatingsService;
     private readonly Client _currentClient;
     public ObservableCollection<Trainer> Trainers { get; private set; } = new();
+    public ObservableCollection<TrainerRating> TrainerRatings { get; private set; } = new();
     public Trainer? SelectedTrainer { get; set; }
     public string ErrorMessage { get; private set; } = string.Empty;
 
@@ -35,6 +36,21 @@ public class RateTrainerViewModel
         catch (Exception ex)
         {
             ErrorMessage = $"Greška pri učitavanju trenera: {ex.Message}";
+        }
+    }
+    public void LoadTrainerRatings()
+    {
+        try
+        {
+            var ratings = _trainerRatingsService.GetClientRatings(_currentClient.Id);
+            TrainerRatings.Clear();
+            
+            foreach (var rating in ratings)
+                TrainerRatings.Add(rating);
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Greška pri učitavanju ocena trenera: {ex.Message}";
         }
     }
 

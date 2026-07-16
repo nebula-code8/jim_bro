@@ -31,6 +31,7 @@
                         <DataGridTextColumn Header="Ime trenera" Binding="{Binding Trainer.Name, FallbackValue=''}" Width="150"/>
                         <DataGridTextColumn Header="Prezime trenera" Binding="{Binding Trainer.Surname, FallbackValue=''}" Width="150"/>
                         <DataGridTextColumn Header="Specijalizacija trenera" Binding="{Binding Trainer.Specialization, FallbackValue=''}" Width="150"/>
+                        <DataGridTextColumn Header="Zavresno" Binding="{Binding CompletedWorkout}" Width="150"/>
                 </DataGrid.Columns>
         </DataGrid>
     <TextBlock Grid.Row="2" Text="Moje ocene treninga" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>

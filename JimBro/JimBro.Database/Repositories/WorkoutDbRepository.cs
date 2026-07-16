@@ -44,6 +44,16 @@ public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
         return Convert.ToInt64(command.ExecuteScalar());
     }
     
+    public void UpdateWorkoutStatus(long workoutId, bool completed)
+    {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText = "UPDATE workout SET completed = @completed WHERE id = @id";
+        AddParameter(command, "@id", workoutId);
+        AddParameter(command, "@completed", completed);
+        command.ExecuteNonQuery();
+    }
+    
     private static Workout MapDbRowToWorkout(IDataRecord reader) 
     {
         DateOnly date;
@@ -62,8 +72,19 @@ public class WorkoutDbRepository : BaseRepository, IWorkoutRepository
         var trainer = new TrainerDbRepository().GetById(trainerId);
         var client = new ClientDbRepository().GetById(clientId);
 
-        return new Workout(Convert.ToInt64(reader["id"]),
+        var workout = new Workout(Convert.ToInt64(reader["id"]),
             date, reader["note"]?.ToString() ?? string.Empty,
-            trainer: trainer, client);
+            trainer, client);  
+        
+        if (reader["completed"] != DBNull.Value)
+        {
+            workout.CompletedWorkout = Convert.ToBoolean(reader["completed"]);
+        }
+        else
+        {
+            workout.CompletedWorkout = false;
+        }
+    
+        return workout;
     }
 }

@@ -87,7 +87,8 @@ CREATE TABLE workout (
     date DATE NOT NULL,
     note Text,
     trainer_id BIGINT REFERENCES users(id),
-    client_id BIGINT REFERENCES users(id)
+    client_id BIGINT REFERENCES users(id),
+    completed BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE workout_exercise (

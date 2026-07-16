@@ -7,4 +7,5 @@ public interface IWorkoutService
     Workout? GetById(long id);
     List<Workout> GetWorkoutsForClient(long clientId);
     long Insert(Workout workout);
+    void UpdateWorkoutStatus(long workoutId, bool completed);
 }

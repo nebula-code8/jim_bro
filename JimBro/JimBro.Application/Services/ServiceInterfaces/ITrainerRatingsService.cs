@@ -6,4 +6,5 @@ public interface ITrainerRatingsService
 {
     List<TrainerRating> GetAllRatings();
     void Insert(TrainerRating trainerRating);
+    List<TrainerRating> GetClientRatings(long clientId);
 }
