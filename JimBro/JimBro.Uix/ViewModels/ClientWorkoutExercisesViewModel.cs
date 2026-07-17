@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using JimBro.Domain;
 using JimBro.Services.ServiceInterfaces;
@@ -43,7 +44,7 @@ public class ClientWorkoutExercisesViewModel
     {
         try
         {
-            var ratings = _exerciseRatingsService.GetClientsRatings(_currentClient.Id, SelectedWorkout.Id);
+            var ratings = _exerciseRatingsService.GetClientWorkoutRatings(_currentClient.Id, SelectedWorkout.Id);
             WorkoutExerciseRatings.Clear();
             
             foreach(var rating in ratings)

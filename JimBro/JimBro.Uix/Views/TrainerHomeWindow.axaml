@@ -42,6 +42,12 @@
                                 Click="CreateWorkoutButton_Click"
                                 Padding="15,8"
                                 FontSize="14" Width="200"/>
+                        <Button Content="Pregled ocena i komentara"
+                                Padding="15,8"
+                                FontSize="14" Width="200"/>
+                        <Button Content="Chat sa klijentima"
+                                Padding="15,8"
+                                FontSize="14" Width="200"/>
                         </StackPanel>
                 </Border>
         </Grid>
