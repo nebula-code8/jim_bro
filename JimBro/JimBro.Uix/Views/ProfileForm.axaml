@@ -2,7 +2,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450" Height="700"
         x:Class="JimBro.Uix.Views.ProfileForm"
         Title="Profile">
     
@@ -20,6 +20,10 @@
                 <TextBox x:Name="HeightBox" Watermark="Visina"></TextBox>
                 <TextBox x:Name="WeightBox" Watermark="Tezina"></TextBox>
                 <TextBox x:Name="GoalBox" Watermark="Cilj"></TextBox>
+                <ComboBox x:Name="LocationBox" HorizontalAlignment="Stretch" SelectedIndex="0"> 
+                        <ComboBoxItem Content="Teretana"></ComboBoxItem>
+                        <ComboBoxItem Content="Kuca"></ComboBoxItem>
+                </ComboBox>
                 <TextBox x:Name="HealthProblemsBox" Watermark="Zdravstveni problemi" MinLines="4"></TextBox>
         
                 <TextBlock x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>

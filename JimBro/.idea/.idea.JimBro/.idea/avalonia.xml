@@ -7,14 +7,30 @@
         <entry key="JimBro.Uix/App.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/ClientHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/TrainerHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/ViewModels/ClientMachineViewModel.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/AccessoriesWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/AccessoryFormWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/AdminHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/App.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/AverageTrainerRatings.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientAccessoryWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/ClientHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientMachineWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientWorkoutExercisesWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientWorkouts.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientWorkoutsWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/ClientsForTrainerWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/CreateExercise.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/CreateExerciseWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/CreateWorkoutWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/LogInForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/MyRequestsWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/Profile.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/ProfileForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/RateExerciseWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/RateTrainer.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/RateTrainerWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
+        <entry key="JimBro.Uix/Views/RateWorkoutWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/RegisterForm.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/RequestTrainerWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />
         <entry key="JimBro.Uix/Views/TrainerHomeWindow.axaml" value="JimBro.Uix/JimBro.Uix.csproj" />

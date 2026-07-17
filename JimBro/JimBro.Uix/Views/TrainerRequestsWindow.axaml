@@ -30,6 +30,7 @@
                         <DataGridTextColumn Header="Visina" Binding="{Binding Height}" Width="50"/>
                         <DataGridTextColumn Header="Tezina" Binding="{Binding Weight}" Width="50"/>
                         <DataGridTextColumn Header="Cilj" Binding="{Binding Goal}" Width="150"/>
+                        <DataGridTextColumn Header="Lokacija" Binding="{Binding TrainingLocation}" Width="100"/>
                         <DataGridTextColumn Header="Zdravestveni problemi" Binding="{Binding HealthProblems}" Width="200"/>
                 </DataGrid.Columns>
         </DataGrid>

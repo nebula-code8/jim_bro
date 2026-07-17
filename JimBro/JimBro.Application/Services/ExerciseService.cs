@@ -18,6 +18,8 @@ public class ExerciseService : IExerciseService
     public List<Exercise> GetAllExercisesForTrainer(long trainerId) =>
         _exerciseRepository.GetAllExercisesForTrainer(trainerId);
 
+    public List<Exercise> GetExercisesForTrainerAndClient(long trainerId, long clientId) => _exerciseRepository.GetExercisesForTrainerAndClient(trainerId, clientId);
+
     public void CreateExercise(Exercise exercise)
     {
         if (string.IsNullOrWhiteSpace(exercise.Name))

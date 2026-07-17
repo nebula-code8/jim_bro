@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="JimBro.Uix.Views.ClientMachineWindow"
+        Title="ClientMachineWindow">
+    <Grid Margin="10">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+    <TextBlock Grid.Row="0" Text="Sve sprave" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+        <DataGrid x:Name="AllMachinesDataGrid"
+                  Grid.Row="1"
+                  MaxHeight="400"
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch">
+                <DataGrid.Columns>
+                        <DataGridTextColumn Header="Naziv" Binding="{Binding Name}" Width="300"/>
+                        <DataGridTextColumn Header="Opis" Binding="{Binding Description}" Width="600"/>
+                </DataGrid.Columns>
+        </DataGrid>
+    <TextBlock Grid.Row="2" Text="Moje sprave" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+            <DataGrid x:Name="ClientMachinesDataGrid"
+                      Grid.Row="3"
+                      MaxHeight="400"
+                      AutoGenerateColumns="False"
+                      HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+                    <DataGrid.Columns>
+                            <DataGridTextColumn Header="Naziv" Binding="{Binding Name}" Width="300"/>
+                            <DataGridTextColumn Header="Opis" Binding="{Binding Description}" Width="600"/>
+                    </DataGrid.Columns>
+            </DataGrid>
+                
+                <TextBlock Grid.Row="4" x:Name="ErrorMessageTextBlock" Foreground="Red" HorizontalAlignment="Center" IsVisible="False" TextWrapping="Wrap"/>
+        
+                <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Center" Spacing="10">
+                        <Button Content="Dodaj spravu" Name="AddButton" Click="AddMachineButton_Click" Width="200"></Button>
+                        <Button Content="Obrisi spravu" Name="RemoveButton" Click="RemoveMachineButton_Click" Width="200"></Button>
+                        <Button Content="Zatvori" Click="CloseButton_Click" Width="200"></Button>
+                </StackPanel>
+        </Grid>
+</Window>

@@ -10,9 +10,24 @@ public class TrainerRequestDbRepository : BaseRepository, ITrainerRequestReposit
     {
         using IDbConnection connection = CreateConnection();
         using IDbCommand command = connection.CreateCommand();
-        command.CommandText = "SELECT users.*, client.height, client.weight, client.goal, client.health_problems FROM users INNER JOIN client ON users.id = client.id INNER JOIN trainer_requests t ON t.client_id = users.id WHERE users.role = @role AND t.status = @status AND trainer_id = @trainer_id";
+        command.CommandText = "SELECT users.*, client.height, client.weight, client.goal, client.training_location, client.health_problems FROM users INNER JOIN client ON users.id = client.id INNER JOIN trainer_requests t ON t.client_id = users.id WHERE users.role = @role AND t.status = @status AND trainer_id = @trainer_id";
         AddParameter(command, "@role", (int)Role.Client);
         AddParameter(command, "status", (int)RequestStatus.Pending);
+        AddParameter(command, "@trainer_id", trainerId);
+        var clients = new List<Client>();
+        using IDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+            clients.Add(MapDbRowToClient(reader));
+        return clients;
+    }
+    
+    public List<Client> GetAcceptedClientsForTrainers(long trainerId)
+    {
+        using IDbConnection connection = CreateConnection();
+        using IDbCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT users.*, client.height, client.weight, client.goal, client.training_location, client.health_problems FROM users INNER JOIN client ON users.id = client.id INNER JOIN trainer_requests t ON t.client_id = users.id WHERE users.role = @role AND t.status = @status AND trainer_id = @trainer_id";
+        AddParameter(command, "@role", (int)Role.Client);
+        AddParameter(command, "status", (int)RequestStatus.Accepted);
         AddParameter(command, "@trainer_id", trainerId);
         var clients = new List<Client>();
         using IDataReader reader = command.ExecuteReader();
@@ -81,6 +96,6 @@ public class TrainerRequestDbRepository : BaseRepository, ITrainerRequestReposit
         
         return new Client(Convert.ToInt64(reader["id"]), reader["name"].ToString(), reader["surname"].ToString(), (Gender)Convert.ToInt32(reader["gender"]),
             dateOfBirth, reader["phone_number"].ToString(), reader["email"].ToString(), reader["password"].ToString(),
-            Convert.ToDouble(reader["height"]), Convert.ToDouble(reader["weight"]),  reader["goal"].ToString(), reader["health_problems"].ToString());
+            Convert.ToDouble(reader["height"]), Convert.ToDouble(reader["weight"]),  reader["goal"].ToString(), (TrainingLocation)Convert.ToInt32(reader["training_location"]), reader["health_problems"].ToString());
     }
 }

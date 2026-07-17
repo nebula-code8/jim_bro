@@ -34,7 +34,7 @@
 
             <Button Content="Rekviziti"
                     Click="AccessoriesCRUD_Click"
-                    Width="180"
+                    Width="200"
                     Padding="15,8"
                     FontSize="14"
                     HorizontalContentAlignment="Center"
@@ -42,7 +42,15 @@
 
             <Button Content="Odjavi se"
                     Click="Logout_Click"
-                    Width="180"
+                    Width="200"
+                    Padding="15,8"
+                    FontSize="14"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"/>
+            
+            <Button Content="Prikazi prosecne ocene trenera"
+                    Click="AverageRatings_Click"
+                    Width="200"
                     Padding="15,8"
                     FontSize="14"
                     HorizontalContentAlignment="Center"

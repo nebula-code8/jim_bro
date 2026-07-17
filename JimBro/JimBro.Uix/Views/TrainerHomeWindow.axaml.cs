@@ -37,4 +37,10 @@ public partial class TrainerHomeWindow : Window
         CreateExerciseWindow window = new  CreateExerciseWindow(_trainer);
         await window.ShowDialog(this);
     }
+    
+    private async void CreateWorkoutButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientsForTrainerWindow window = new ClientsForTrainerWindow(_trainer);
+        await window.ShowDialog(this);
+    }
 }

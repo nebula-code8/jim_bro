@@ -26,6 +26,7 @@ public class TrainerRequestService : ITrainerRequestService
     }
     public TrainerRequest? GetRequest(long clientId, long trainerId) => _trainerRequestRepository.GetRequest(clientId, trainerId);
     public List<Client> GetClientsForTrainer(long trainerId) => _trainerRequestRepository.GetClientsForTrainer(trainerId);
+    public List<Client> GetAcceptedClientsForTrainers(long trainerId) => _trainerRequestRepository.GetAcceptedClientsForTrainers(trainerId);
     public void AcceptRequest(long requestId) => _trainerRequestRepository.AcceptRequest(requestId);
     public void RejectRequest(long requestId) => _trainerRequestRepository.RejectRequest(requestId);
 }

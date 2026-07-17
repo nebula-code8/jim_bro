@@ -24,7 +24,7 @@ public partial class RegisterForm : Window
     {
         try
         {
-            Client client = new Client(NameBox.Text ?? "", SurnameBox.Text ?? "", GenderBox.SelectedIndex == 0 ? Gender.Male : Gender.Female , DateOnly.FromDateTime(DatePicker.SelectedDate?.DateTime ?? DateTime.Now), PhoneBox.Text ?? "", EmailBox.Text ?? "", PasswordBox.Text ?? "", Convert.ToDouble(HeightBox.Text), Convert.ToDouble(WeightBox.Text), GoalBox.Text ?? "", HealthProblemsBox.Text ?? "");
+            Client client = new Client(NameBox.Text ?? "", SurnameBox.Text ?? "", GenderBox.SelectedIndex == 0 ? Gender.Male : Gender.Female , DateOnly.FromDateTime(DatePicker.SelectedDate?.DateTime ?? DateTime.Now), PhoneBox.Text ?? "", EmailBox.Text ?? "", PasswordBox.Text ?? "", Convert.ToDouble(HeightBox.Text), Convert.ToDouble(WeightBox.Text), GoalBox.Text ?? "", LocationBox.SelectedIndex == 0 ? TrainingLocation.Teratana : TrainingLocation.Kuci ,HealthProblemsBox.Text ?? "");
             bool success = _viewModel.Register(client);
 
             if (success)
@@ -64,6 +64,7 @@ public partial class RegisterForm : Window
         HeightBox.Text = string.Empty;
         WeightBox.Text = string.Empty;
         GoalBox.Text = string.Empty;
+        LocationBox.SelectedItem = TrainingLocation.Teratana;
         HealthProblemsBox.Text = string.Empty;
     }
 }

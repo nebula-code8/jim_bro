@@ -43,8 +43,32 @@ public partial class ClientHomeWindow : Window
     }
     
     private async void MyRequestsButton_Click(object? sender, RoutedEventArgs e)
-        {
+    {
             MyRequestsWindow window = new MyRequestsWindow(_client);
             await window.ShowDialog(this);
-        }
+    }
+    
+    private async void AccessoriesButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientAccessoryWindow window = new ClientAccessoryWindow(_client);
+        await window.ShowDialog(this);
+    }
+    
+    private async void MachinesButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientMachineWindow window = new ClientMachineWindow(_client);
+        await window.ShowDialog(this);
+    }
+    
+    private async void MyWorkoutsButton_Click(object? sender, RoutedEventArgs e)
+    {
+        ClientWorkoutsWindow window = new ClientWorkoutsWindow(_client);
+        await window.ShowDialog(this);
+    }
+    
+    private async void RateTrainerButton_Click(object? sender, RoutedEventArgs e)
+    {
+        RateTrainerWindow window = new RateTrainerWindow(_client);
+        await window.ShowDialog(this);
+    }
 }
